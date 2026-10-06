@@ -234,9 +234,11 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{
 </div>
 </dl>
 </div>
-<form action="https://formspree.io/f/VERVANG_DIT_DOOR_JE_FORMULIER_ID" method="POST" style="flex: 1.4 1 440px; min-width: 0; display: flex; flex-direction: column; gap: 20px; padding-top: calc(clamp(40px, 5vw, 64px) * 1.05 + 24px)">
-<input type="hidden" name="_subject" value="Nieuw bericht via saxofoonles.be">
-<input type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true" style="position: absolute; left: -9999px; width: 1px; height: 1px; opacity: 0">
+<form id="contactformulier" action="https://api.web3forms.com/submit" method="POST" style="flex: 1.4 1 440px; min-width: 0; display: flex; flex-direction: column; gap: 20px; padding-top: calc(clamp(40px, 5vw, 64px) * 1.05 + 24px)">
+<input type="hidden" name="access_key" value="390736ed-cded-4464-9c2a-9718f4844fd9">
+<input type="hidden" name="subject" value="Nieuw bericht via saxofoonles.be">
+<input type="hidden" name="from_name" value="saxofoonles.be">
+<input type="checkbox" name="botcheck" tabindex="-1" autocomplete="off" aria-hidden="true" style="display: none">
 <div style="display: flex; flex-direction: column; gap: 6px">
 <label for="mc-naam" style="font-family: 'Barlow Semi Condensed', sans-serif; font-weight: 600; font-size: 15px; letter-spacing: 0.04em; text-transform: uppercase">Naam <span aria-hidden="true" style="color: #B93A0C">*</span></label>
 <input id="mc-naam" name="name" autocomplete="name" required type="text" style="height: 52px; box-sizing: border-box; background: #FBF6EE; color: #1C1410; border: 1px solid #E6DACB; border-radius: 6px; padding: 0 16px; font-size: 18px">
@@ -253,7 +255,34 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{
 <button type="submit" style="background: #B93A0C; color: #FFFFFF; border: 0; border-radius: 6px; font-family: 'Barlow Semi Condensed', sans-serif; font-weight: 600; font-size: 18px; letter-spacing: 0.03em; text-transform: uppercase; padding: 0 32px; min-height: 52px; cursor: pointer">Verstuur</button>
 <span style="font-size: 14px; color: #7A7068; text-align: right; margin-left: auto">Velden met een * zijn verplicht</span>
 </div>
+<p id="formulier-status" role="status" aria-live="polite" style="margin: 0; font-size: 17px; min-height: 1.4em"></p>
 </form>
+<script>
+(function () {
+  var form = document.getElementById('contactformulier');
+  var status = document.getElementById('formulier-status');
+  var button = form.querySelector('button[type="submit"]');
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    button.disabled = true;
+    status.style.color = '#5A4B42';
+    status.textContent = 'Bezig met versturen…';
+    fetch(form.action, { method: 'POST', headers: { 'Accept': 'application/json' }, body: new FormData(form) })
+      .then(function (r) { return r.json(); })
+      .then(function (data) {
+        if (!data.success) throw new Error(data.message);
+        form.reset();
+        status.style.color = '#1C1410';
+        status.textContent = 'Bedankt! Je bericht is verstuurd. Ik antwoord zo snel mogelijk.';
+      })
+      .catch(function () {
+        status.style.color = '#B93A0C';
+        status.textContent = 'Er ging iets mis bij het versturen. Probeer het later opnieuw.';
+      })
+      .finally(function () { button.disabled = false; });
+  });
+})();
+</script>
 </div>
 </div>
 

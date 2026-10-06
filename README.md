@@ -1,38 +1,34 @@
 # saxofoonles.be
 
-Eénpagina-website, alleen in het Nederlands. Gewone HTML, geen build nodig.
+Eénpagina-website, alleen in het Nederlands. Gewone HTML, geen build nodig. Open `index.html` in je browser om de site lokaal te bekijken.
 
 ## Inhoud
 
-- `index.html`: de hele pagina (stijl zit erin)
+- `index.html`: de hele pagina (stijl en het scriptje voor het formulier zitten erin)
 - `images/`: de vier foto's
 - `CNAME`: zegt aan GitHub Pages dat de site op saxofoonles.be draait
 - `.nojekyll`: zorgt dat GitHub de bestanden ongewijzigd toont
 
-## 1. Contactformulier laten mailen
+## Contactformulier
 
-GitHub Pages kan zelf geen e-mail sturen. Het formulier gebruikt daarom Formspree (gratis tot 50 berichten per maand).
+GitHub Pages kan zelf geen e-mail sturen. Het formulier gebruikt daarom [Web3Forms](https://web3forms.com) (gratis). Berichten komen toe op het e-mailadres dat aan de access key gekoppeld is.
 
-1. Maak een account op formspree.io en maak een nieuw formulier aan met jouw e-mailadres.
-2. Kopieer de formulier-ID (iets als `xqkrwpab`).
-3. Open `index.html` en zoek `VERVANG_DIT_DOOR_JE_FORMULIER_ID`. Vervang dat door jouw ID.
-4. Bij het eerste bericht stuurt Formspree een bevestigingsmail. Bevestig die één keer.
+- De access key staat in `index.html`, in het verborgen veld `access_key`. Die sleutel mag publiek zijn: hij kan alleen berichten naar jouw adres sturen.
+- Het onderwerp van de mail pas je aan in het verborgen veld `subject`.
+- Na het versturen toont de pagina zelf een bedankt- of foutmelding, zonder naar een andere pagina te gaan.
+- Een verborgen `botcheck`-vakje houdt de meeste spam tegen.
+- Een ander ontvangstadres nodig? Maak op web3forms.com een nieuwe access key aan en vervang de oude in `index.html`.
 
-## 2. Online zetten met GitHub Pages
+## Online zetten
 
-1. Maak op GitHub een nieuwe repository, bijvoorbeeld `saxofoonles`.
-2. Upload alle bestanden uit deze map (ook `images/`, `CNAME` en `.nojekyll`).
-3. Ga naar Settings, Pages. Kies bij Source "Deploy from a branch", branch `main`, map `/ (root)`.
-4. Na een minuut staat de site op `jouwnaam.github.io/saxofoonles`.
+De site draait via GitHub Pages vanuit de repository [LorenzBaele/saxofoonles.be](https://github.com/LorenzBaele/saxofoonles.be), branch `main`, map `/ (root)`. Alles wat naar `main` gepusht wordt, staat na een minuutje live op saxofoonles.be.
 
-## 3. Het domein saxofoonles.be koppelen
+Instellingen (Settings, Pages): Source "Deploy from a branch", custom domain `saxofoonles.be`, "Enforce HTTPS" aan.
 
-Stel bij je domeinregistrar deze DNS-records in:
+DNS bij de domeinregistrar:
 
 - vier A-records voor `@` naar: `185.199.108.153`, `185.199.109.153`, `185.199.110.153`, `185.199.111.153`
-- een CNAME-record voor `www` naar `jouwnaam.github.io`
-
-Vul daarna bij Settings, Pages, "Custom domain" `saxofoonles.be` in en zet "Enforce HTTPS" aan. Het kan enkele uren duren voor dit werkt.
+- een CNAME-record voor `www` naar `lorenzbaele.github.io`
 
 ## Dingen die je later zelf aanpast
 
