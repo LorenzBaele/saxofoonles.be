@@ -38,13 +38,21 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{
 @media (max-width:720px){
   #lessen,#over-mij,#contact{padding-left:20px!important;padding-right:20px!important}
   #lessen{padding-top:32px!important}
-  #top>div:last-child{padding:64px 20px!important}
+  #top{display:block!important}
+  #top>div:last-child{padding:310px 20px 64px!important}
   #top h1{font-size:40px!important}
   #top p{font-size:19px!important}
-  .hero-shade{display:block;position:absolute;left:0;top:0;right:0;bottom:0;background:rgba(28,20,16,.62)}
-  .hero-note{display:none!important}
+  /* Mobiel: foto bovenaan met het gezicht rechts, tekst eronder */
+  .hero-foto,.hero-note{transform:none!important;height:600px!important}
+  .hero-kader{top:0!important;height:100%!important;min-height:0!important;aspect-ratio:auto!important;transform:none!important}
+  .hero-img{object-position:calc(70vw - 355px) 0}
+  .hero-fade{display:none}
+  .hero-shade{display:block;position:absolute;left:0;top:0;right:0;bottom:0;background:linear-gradient(to bottom,rgba(28,20,16,0) 0,rgba(28,20,16,0) 200px,rgba(28,20,16,.78) 360px,#1C1410 600px)}
+  .hero-note-svg{left:14px!important;top:92px!important;width:200px!important}
+  .over-kiekje{right:-8px!important}
   #tarieven>div:last-child{padding:48px 20px!important}
   #tarieven p{width:auto!important;height:auto!important;margin-left:0!important}
+  .tarieven-onder{flex-direction:column-reverse;align-items:flex-start!important}
   #verhuur>div:last-child{padding:56px 20px!important}
   #contact>div{padding:28px 22px!important;gap:32px!important}
   #contact form{padding-top:0!important}
@@ -73,13 +81,14 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{
 <main>
 <!-- HERO -->
 <div id="top" style="position: relative; overflow: hidden; min-height: 600px; display: flex; align-items: center; background: #1C1410">
-<div style="position: absolute; left: 0; top: 0; width: 100%; height: 100%; transform-origin: 50% 22%; transform: translateX(-10%) scale(1)">
-<div style="position: absolute; left: 0; top: 22%; width: 100%; min-height: 100%; aspect-ratio: 3 / 2; transform: translateY(-22%)">
-<img fetchpriority="high" decoding="async" src="images/banner-lorenz.jpg" alt="Lorenz speelt saxofoon" style="width: 100%; height: 100%; object-fit: cover; display: block; filter: sepia(0.38) saturate(1.2) hue-rotate(-10deg)">
+<div class="hero-foto" style="position: absolute; left: 0; top: 0; width: 100%; height: 100%; transform-origin: 50% 22%; transform: translateX(-10%) scale(1)">
+<div class="hero-kader" style="position: absolute; left: 0; top: 22%; width: 100%; min-height: 100%; aspect-ratio: 3 / 2; transform: translateY(-22%)">
+<img class="hero-img" fetchpriority="high" decoding="async" src="images/banner-lorenz.jpg" alt="Lorenz speelt saxofoon" style="width: 100%; height: 100%; object-fit: cover; display: block; filter: sepia(0.38) saturate(1.2) hue-rotate(-10deg)">
 </div>
 </div>
 <div style="position: absolute; left: 0; top: 0; right: 0; bottom: 0; background: #1C1410; mix-blend-mode: lighten; pointer-events: none"></div>
-<div style="position: absolute; left: 0; top: 0; right: 0; bottom: 0; background: linear-gradient(270deg, rgba(28,20,16,0.92) 0%, rgba(28,20,16,0.7) 38%, rgba(28,20,16,0) 62%)"></div>
+<div class="hero-fade" style="position: absolute; left: 0; top: 0; right: 0; bottom: 0; background: linear-gradient(270deg, rgba(28,20,16,0.92) 0%, rgba(28,20,16,0.7) 38%, rgba(28,20,16,0) 62%)"></div>
+<div class="hero-shade" aria-hidden="true"></div>
 <!-- Bokeh: zachte, onscherpe podiumlichten in de accentkleur -->
 <div aria-hidden="true" style="position: absolute; inset: 0; pointer-events: none">
 <span style="position: absolute; left: 72%; top: 58%; width: 220px; height: 220px; border-radius: 999px; background: radial-gradient(circle at 40% 40%, #FFDB8F 0%, #E09A2A 40%, #CC7A16 70%); mix-blend-mode: screen; opacity: 0.21; filter: blur(47px) saturate(1.14)"></span>
@@ -89,8 +98,8 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{
 </div>
 <div style="position: absolute; left: 0; top: 0; right: 0; height: 120px; background: linear-gradient(to bottom, #1C1410 0%, rgba(28,20,16,0.6) 40%, rgba(28,20,16,0) 100%); pointer-events: none"></div>
 <div class="hero-note" style="position: absolute; left: 0; top: 0; width: 100%; height: 100%; transform-origin: 50% 22%; transform: translateX(-10%) scale(1); pointer-events: none">
-<div style="position: absolute; left: 0; top: 22%; width: 100%; min-height: 100%; aspect-ratio: 3 / 2; transform: translateY(-22%)">
-<svg viewBox="0 0 300 240" role="img" aria-label="Hoi, ik ben Lorenz!" style="position: absolute; left: 10.7%; top: 9%; width: 20%; height: auto; aspect-ratio: 300 / 240; overflow: visible">
+<div class="hero-kader" style="position: absolute; left: 0; top: 22%; width: 100%; min-height: 100%; aspect-ratio: 3 / 2; transform: translateY(-22%)">
+<svg class="hero-note-svg" viewBox="0 0 300 240" role="img" aria-label="Hoi, ik ben Lorenz!" style="position: absolute; left: 10.7%; top: 9%; width: 20%; height: auto; aspect-ratio: 300 / 240; overflow: visible">
 <g transform="rotate(-5 100 70)" fill="#F5B942" font-family="'Caveat', cursive" font-weight="700">
 <text x="14" y="52" font-size="44">Hoi, ik ben</text>
 <text x="40" y="100" font-size="54">Lorenz!</text>
@@ -105,7 +114,6 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{
 </svg>
 </div>
 </div>
-<div class="hero-shade" aria-hidden="true"></div>
 <div style="position: relative; width: 100%; max-width: 1280px; margin: 0 auto; padding: 96px 48px; box-sizing: border-box">
 <div style="margin-left: auto; max-width: 520px">
 <h1 style="font-family: 'Barlow Semi Condensed', sans-serif; font-weight: 700; font-size: clamp(40px, 4.4vw, 60px); line-height: 1.05; letter-spacing: 0.02em; color: #FFFFFF; margin: 0 0 24px">Leer <span style="background-image: linear-gradient(to right, #FF7A3D, #F5B942); -webkit-background-clip: text; background-clip: text; color: transparent; -webkit-text-fill-color: transparent">saxofoon</span> spelen, met lessen op jouw maat</h1>
@@ -176,7 +184,10 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{
 <div style="position: relative; font-family: 'Barlow Semi Condensed', sans-serif; font-weight: 700; font-size: 96px; line-height: 1; letter-spacing: 0.01em; color: #FFFFFF; text-shadow: 0 2px 0 rgba(120,35,6,0.35)">€55</div>
 </div>
 </div>
-<p style="display: block; box-sizing: border-box; width: 401px; margin: 28px 0 0 auto; padding: 10px 16px; background: rgba(251,246,238,0.6); -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px); border-radius: 10px; color: #1C1410; height: 77px">Kom ik naar je toe? Dan reken ik de verplaatsing aan volgens de Belgische kilometervergoeding.</p>
+<div class="tarieven-onder" style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 20px 24px; margin-top: 28px">
+<a href="#contact" style="background: #B93A0C; color: #FFFFFF; text-decoration: none; font-family: 'Barlow Semi Condensed', sans-serif; font-weight: 600; font-size: 18px; letter-spacing: 0.03em; text-transform: uppercase; padding: 14px 28px; border-radius: 6px">Plan je eerste les</a>
+<p style="display: block; box-sizing: border-box; width: 401px; margin: 0 0 0 auto; padding: 10px 16px; background: rgba(251,246,238,0.6); -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px); border-radius: 10px; color: #1C1410; height: 77px">Kom ik naar je toe? Dan reken ik de verplaatsing aan volgens de Belgische kilometervergoeding.</p>
+</div>
 </div>
 </div><div id="verhuur" style="background: #1C1410; color: #FFFFFF; margin-top: 0; position: relative; overflow: hidden">
 <!-- Bokeh: dezelfde lichten als in de banner -->
@@ -207,7 +218,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{
 <div aria-hidden="true" style="position: absolute; left: 0; top: 0; right: 0; bottom: 0; pointer-events: none; background: linear-gradient(135deg, rgba(246,174,69,0.16) 0%, rgba(246,174,69,0) 42%), linear-gradient(180deg, rgba(185,58,12,0) 55%, rgba(185,58,12,0.30) 100%); box-shadow: inset 0 0 0 1px rgba(255,225,170,0.30)"></div>
 </div>
 </div>
-<img loading="lazy" decoding="async" src="images/kiekje-band.jpg" alt="Lorenz speelt saxofoon met zijn band op het podium" style="position: absolute; right: -34px; bottom: -6px; width: 55%; aspect-ratio: 4 / 3; object-fit: cover; object-position: 40% 50%; border: 8px solid #FFF6E6; border-radius: 6px; transform: rotate(5deg); box-shadow: 0 18px 28px -10px rgba(185,58,12,0.38); filter: sepia(0.42) saturate(0.92) contrast(1.03) hue-rotate(-8deg); display: block">
+<img class="over-kiekje" loading="lazy" decoding="async" src="images/kiekje-band.jpg" alt="Lorenz speelt saxofoon met zijn band op het podium" style="position: absolute; right: -34px; bottom: -6px; width: 55%; aspect-ratio: 4 / 3; object-fit: cover; object-position: 40% 50%; border: 8px solid #FFF6E6; border-radius: 6px; transform: rotate(5deg); box-shadow: 0 18px 28px -10px rgba(185,58,12,0.38); filter: sepia(0.42) saturate(0.92) contrast(1.03) hue-rotate(-8deg); display: block">
 </div>
 </div>
 <div class="over-tekst">
