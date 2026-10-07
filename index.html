@@ -47,7 +47,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{
   .hero-bokeh>span:nth-child(4){left:-70px!important;top:-60px!important}
 }
 @media (max-width:799px){
-  .over-noot{grid-column:1!important;grid-row:2!important;margin:4px 0 32px!important}
+  .over-noot{grid-column:1!important;grid-row:2!important;margin:4px 0 24px!important}
   .over-tekst{grid-row:3}
 }
 @media (min-width:800px) and (max-width:1099px){
@@ -71,7 +71,27 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{
 @media (max-width:720px){
   #lessen,#over-mij,#contact{padding-left:20px!important;padding-right:20px!important}
   #lessen{padding-top:32px!important}
-  #top>div:last-child{padding:310px 20px 64px!important}
+  /* Mobiel compacter: minder scrollen */
+  .nav-links a{padding:6px 0!important}
+  .nav-bar{padding:10px 20px!important}
+  #lessen h2,#tarieven h2,#verhuur h2{font-size:34px!important;margin-bottom:20px!important}
+  #lessen h2:not(:first-child){margin-top:40px!important}
+  #lessen>div>div{padding:18px 20px!important}
+  #lessen>div>div>div:first-child{margin-bottom:10px!important}
+  #lessen h3{font-size:20px!important;margin-bottom:4px!important}
+  #lessen h3+p{font-size:16px;line-height:1.5}
+  #lessen>div[style*="grid"]{gap:12px!important}
+  #lessen>div:not([style*="grid"]){margin-top:20px!important}
+  .tarieven-grid{grid-template-columns:1fr 1fr!important;gap:12px!important}
+  .tarieven-grid>div{padding:18px!important}
+  .tarieven-grid>div>div:first-child{font-size:16px!important}
+  .tarieven-grid>div>div:last-child{font-size:52px!important}
+  .tarieven-onder{margin-top:20px!important;gap:16px!important}
+  #over-mij{padding-top:56px!important}
+  #over-mij>div>div:first-child{max-width:290px}
+  .over-tekst h2{font-size:52px!important}
+  #contact{padding-top:24px!important}
+  #top>div:last-child{padding:310px 20px 48px!important}
   #top h1{font-size:40px!important}
   #top p{font-size:19px!important}
   .over-kiekje{right:-8px!important}
@@ -79,10 +99,10 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{
   .verhuur-bokeh>span:nth-child(2){left:78%!important;top:-90px!important}
   .verhuur-bokeh>span:nth-child(3){left:-50px!important;top:auto!important;bottom:-30px}
   .verhuur-bokeh>span:nth-child(4){left:calc(100% - 30px)!important;top:45%!important}
-  #tarieven>div:last-child{padding:48px 20px!important}
+  #tarieven>div:last-child{padding:40px 20px!important}
   #tarieven p{width:auto!important;height:auto!important;margin-left:0!important}
   .tarieven-onder{flex-direction:column-reverse;align-items:flex-start!important}
-  #verhuur>div:last-child{padding:56px 20px!important}
+  #verhuur>div:last-child{padding:44px 20px!important;gap:24px!important}
   #contact>div{padding:28px 22px!important}
   .contact-gegevens>div{flex-direction:column;align-items:flex-start!important}
   .footer-punt{display:block;height:0;overflow:hidden}
@@ -210,7 +230,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{
 </div>
 <div style="position: relative; max-width: 1280px; margin: 0 auto; padding: 72px 48px 72px; box-sizing: border-box">
 <h2 style="font-family: 'Barlow Semi Condensed', sans-serif; font-weight: 700; font-size: 44px; line-height: 1.1; letter-spacing: 0.02em; margin: 0 0 40px">Tarieven</h2>
-<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px">
+<div class="tarieven-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px">
 <div style="background: #FFFFFF; border-radius: 12px; padding: 40px; box-shadow: 0 20px 25px -5px rgba(28,20,16,0.06), 0 8px 10px -6px rgba(28,20,16,0.06)">
 <div style="font-family: 'Barlow Semi Condensed', sans-serif; font-weight: 600; font-size: 20px; letter-spacing: 0.03em; text-transform: uppercase; color: #5A4B42; margin-bottom: 4px">30 minuten</div>
 <div style="font-family: 'Barlow Semi Condensed', sans-serif; font-weight: 700; font-size: 96px; line-height: 1; letter-spacing: 0.01em; color: #1C1410">€30</div>
