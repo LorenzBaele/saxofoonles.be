@@ -5,7 +5,8 @@ Eénpagina-website, alleen in het Nederlands. Gewone HTML, geen build nodig. Ope
 ## Inhoud
 
 - `index.html`: de hele pagina (stijl en het scriptje voor het formulier zitten erin)
-- `images/`: de vier foto's
+- `images/`: de vier foto's (gecomprimeerd, max. 2000 px breed)
+- `robots.txt` en `sitemap.xml`: voor Google. Pas `lastmod` in de sitemap aan als de inhoud flink verandert.
 - `CNAME`: zegt aan GitHub Pages dat de site op saxofoonles.be draait
 - `.nojekyll`: zorgt dat GitHub de bestanden ongewijzigd toont
 
@@ -36,5 +37,6 @@ DNS bij de domeinregistrar (Hoasted, Zone Editor):
 Alles staat op het account lorenzbaele.booking@gmail.com.
 
 - **Google Bedrijfsprofiel** (geverifieerd): website https://saxofoonles.be/, adres van de studio in Gent (publiek zichtbaar). Diensten: Saxofoonles 30 min (€30), Saxofoonles 60 min (€55), Saxofoonles voor kinderen 30 min (€30) en Saxofoonles voor kinderen 60 min (€55). Saxofoonverhuur staat bewust alleen op de website, niet op Google.
-- **Google Search Console**: domeineigendom saxofoonles.be, geverifieerd via het TXT-record hierboven. Indexering van https://saxofoonles.be aangevraagd op 8 oktober 2026. Controleren door `site:saxofoonles.be` in Google te zoeken.
+- **Google Search Console**: domeineigendom saxofoonles.be, geverifieerd via het TXT-record hierboven. De homepage is geïndexeerd sinds oktober 2026. Sitemap: https://saxofoonles.be/sitemap.xml.
+- **Gestructureerde gegevens**: `index.html` bevat een JSON-LD-blok (LocalBusiness) met naam, e-mail, Gent en de tarieven. Pas de prijzen daar ook aan als ze op de pagina veranderen. Testen met de Rich Results Test van Google.
 - **Trustpilot**: er bestaat een bedrijfsaccount, maar dat staat bewust niet op de website. Reviews gaan naar Google.
