@@ -72,6 +72,7 @@ html{scroll-behavior:auto}
 body{overflow-x:hidden;background:#FBF6EE}
 a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{outline:3px solid #D9701F;outline-offset:2px}
 .hero-shade{display:none}
+.noot-br{display:none}
 /* Brede schermen: het belichte gordijn rechts in de foto laten wegvloeien in de achtergrond */
 @media (min-width:1051px){
   .hero-img{-webkit-mask-image:linear-gradient(to right,#000 46%,transparent 62%);mask-image:linear-gradient(to right,#000 46%,transparent 62%)}
@@ -102,11 +103,47 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{
   .hero-bokeh>span:nth-child(4){left:-70px!important;top:-60px!important}
 }
 @media (max-width:799px){
-  .over-noot{grid-column:1!important;grid-row:2!important;margin:4px 0 24px!important}
+  .over-noot{grid-column:1!important;grid-row:2!important;margin:4px 0 24px!important;justify-content:center!important;padding-left:0!important}
+  .over-noot>div{flex:none}
+  .noot-br{display:inline}
+  .over-tekst h2{text-align:center;transform-origin:center!important}
   .over-tekst{grid-row:3}
 }
 @media (min-width:800px) and (max-width:1099px){
   .over-noot{margin-top:16px!important}
+}
+/* Studiofoto bij De lessen: de foto vloeit weg in de achtergrond, de kaartjes liggen erover */
+.lessen-kaarten>div{position:relative;z-index:1}
+.studio-foto{position:relative;margin:0;border-radius:12px;overflow:hidden}
+.studio-foto img{width:100%;height:auto;aspect-ratio:1280/964;display:block}
+.studio-foto-schaduw{position:absolute;left:0;right:0;bottom:0;height:40%;background:linear-gradient(to top,rgba(28,20,16,.62) 0%,rgba(28,20,16,0) 100%);pointer-events:none}
+.studio-foto figcaption{position:absolute;left:28px;bottom:18px;color:#FFF6E6;font-family:'Caveat',cursive;font-weight:700;font-size:40px;line-height:1.1;transform:rotate(-2deg);transform-origin:left bottom;text-shadow:0 2px 10px rgba(28,20,16,.55)}
+/* Breed: de kaartjes in een kolom links, de foto rechts half eronder */
+@media (min-width:1000px){
+  .lessen-studio{display:grid;grid-template-columns:minmax(320px,400px) 1fr;align-items:center}
+  .lessen-kaarten{grid-area:1/1;grid-template-columns:1fr!important;gap:16px!important}
+  .studio-foto{grid-area:1/2;margin-left:-110px;border-radius:0 12px 12px 0;-webkit-mask-image:linear-gradient(to right,transparent 0,#000 220px);mask-image:linear-gradient(to right,transparent 0,#000 220px)}
+  .studio-foto figcaption{left:auto;right:28px;transform-origin:right bottom}
+}
+/* Middel: twee kaartjes boven, het derde links onder, de foto rechts onder en half onder dat kaartje */
+@media (min-width:640px) and (max-width:999px){
+  .lessen-studio{display:grid;grid-template-columns:1fr 1fr;gap:24px;align-items:center}
+  .lessen-kaarten{display:contents!important}
+  .lessen-kaarten>div:nth-child(-n+2){align-self:stretch}
+  .studio-foto{grid-column:2;grid-row:2;margin-left:-96px;border-radius:0 12px 12px 0;-webkit-mask-image:linear-gradient(to right,transparent 0,#000 170px);mask-image:linear-gradient(to right,transparent 0,#000 170px)}
+  .studio-foto figcaption{left:auto;right:20px;bottom:14px;font-size:32px;transform-origin:right bottom}
+}
+/* Telefoon: de foto wordt de onderkant van het kaartje "Waar gaat de les door?", met een strookje van het plafond eraf */
+@media (max-width:639px){
+  .lessen-studio{display:grid;gap:12px}
+  .lessen-kaarten{display:contents!important}
+  .lessen-kaarten>div:last-child{border-radius:12px 12px 0 0!important;box-shadow:none!important}
+  .studio-foto{margin-top:-12px;border-radius:0 0 12px 12px;box-shadow:0 20px 25px -5px rgba(28,20,16,.06),0 8px 10px -6px rgba(28,20,16,.06)}
+  .studio-foto img{aspect-ratio:1280/860;object-fit:cover;object-position:50% 100%}
+  .studio-foto::before{content:"";position:absolute;left:0;right:0;top:0;height:64px;background:linear-gradient(#FFFFFF,rgba(255,255,255,0));z-index:1;pointer-events:none}
+  .studio-foto figcaption{font-size:30px;left:18px;bottom:12px}
+}
+}
 }
 /* Contact onder elkaar: titel, formulier, uitleg, gegevens */
 @media (max-width:1051px){
@@ -146,7 +183,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{
   .tarieven-grid>div>div:last-child{font-size:52px!important}
   .tarieven-onder{margin-top:20px!important;gap:16px!important}
   #over-mij{padding-top:56px!important}
-  #over-mij>div>div:first-child{max-width:290px}
+  #over-mij>div>div:first-child{max-width:290px;width:100%;margin:0 auto}
   .over-tekst h2{font-size:52px!important}
   #contact{padding-top:24px!important}
   #top>div:last-child{padding:310px 20px 48px!important}
@@ -161,6 +198,9 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{
   #tarieven p{width:auto!important;height:auto!important;margin-left:0!important}
   .tarieven-onder{flex-direction:column-reverse;align-items:flex-start!important}
   #verhuur>div:last-child{padding:44px 20px!important;gap:24px!important}
+  .lessen-kaarten{gap:12px!important}
+  .lessen-kaarten>div{padding:18px 20px!important}
+  .lessen-kaarten>div>div:first-child{margin-bottom:10px!important}
   #contact>div{padding:28px 22px!important}
   .contact-gegevens>div{flex-direction:column;align-items:flex-start!important}
   .footer-punt{display:block;height:0;overflow:hidden}
@@ -234,7 +274,9 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{
 <!-- LESSEN -->
 <div id="lessen" style="max-width: 1280px; margin: 0 auto; padding: 35px 48px 24px; box-sizing: border-box">
 <h2 style="font-family: 'Barlow Semi Condensed', sans-serif; font-weight: 700; font-size: 44px; line-height: 1.1; letter-spacing: 0.02em; margin: 0 0 40px">De lessen</h2>
-<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(280px, 100%), 1fr)); gap: 24px">
+<!-- Kaartjes over de foto van de studio: naast elkaar op brede schermen, erboven op smalle -->
+<section class="lessen-studio">
+<div class="lessen-kaarten" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(280px, 100%), 1fr)); gap: 24px">
 <div style="background: #FFFFFF; border-radius: 12px; padding: 32px; box-shadow: 0 20px 25px -5px rgba(28,20,16,0.06), 0 8px 10px -6px rgba(28,20,16,0.06)">
 <div style="width: 40px; height: 4px; border-radius: 2px; background-image: linear-gradient(to right, #B93A0C, #9A6A0B); margin-bottom: 20px"></div>
 <h3 style="font-family: 'Barlow Semi Condensed', sans-serif; font-weight: 700; font-size: 24px; line-height: 1.2; margin: 0 0 10px">Hoe lang duurt een les?</h3>
@@ -251,6 +293,13 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{
 <p style="margin: 0; color: #5A4B42">Dat kan in mijn studio in Gent of bij je thuis. Aan jou de keuze.</p>
 </div>
 </div>
+<!-- Foto van de studio, met een handgeschreven onderschrift -->
+<figure class="studio-foto">
+<img loading="lazy" decoding="async" src="images/studio-gent.jpg" width="1280" height="964" alt="Mijn studio in Gent, met een piano, gitaren en twee saxofoons op een standaard">
+<div aria-hidden="true" class="studio-foto-schaduw"></div>
+<figcaption>Mijn studio in Gent</figcaption>
+</figure>
+</section>
 <div style="margin-top: 32px">
 <a href="#contact" style="display: inline-block; background: #B93A0C; color: #FFFFFF; text-decoration: none; font-family: 'Barlow Semi Condensed', sans-serif; font-weight: 600; font-size: 18px; letter-spacing: 0.03em; text-transform: uppercase; padding: 14px 28px; border-radius: 6px">Nog een vraag?</a>
 </div>
@@ -346,7 +395,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{
 <a href="https://www.instagram.com/lorenzbaele/" style="font-family: 'Barlow Semi Condensed', sans-serif; font-weight: 600; font-size: 17px; letter-spacing: 0.03em; text-transform: uppercase; text-decoration: none">Filmpjes op Instagram: @lorenzbaele ›</a>
 </div>
 <div class="over-noot" style="display: flex; align-items: flex-start; justify-content: flex-start; gap: 10px; margin-top: -56px; padding-left: 6px; grid-column: 2; grid-row: 2; color: #B93A0C">
-<svg width="86" height="64" viewBox="0 0 86 64" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex: none; margin-top: -6px; width: 79px; height: 67px; transform: rotate(-23deg)"><path d="M 78 54 C 46 58, 18 44, 12 12"></path><path d="M 6.7 20.9 L 12 8 L 26.5 19.1"></path></svg><div style="font-family: 'Caveat', cursive; font-weight: 700; font-size: 34px; line-height: 1.1; transform: rotate(-3deg); transform-origin: left center; padding-top: 22px">Dit ben ik, aan het spelen!</div>
+<svg width="86" height="64" viewBox="0 0 86 64" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex: none; margin-top: -6px; width: 79px; height: 67px; transform: rotate(-23deg)"><path d="M 78 54 C 46 58, 18 44, 12 12"></path><path d="M 6.7 20.9 L 12 8 L 26.5 19.1"></path></svg><div style="font-family: 'Caveat', cursive; font-weight: 700; font-size: 34px; line-height: 1.1; transform: rotate(-3deg); transform-origin: left center; padding-top: 22px">Dit ben ik,<br class="noot-br"> aan het spelen!</div>
 
 </div>
 </div>
