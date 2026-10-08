@@ -5,7 +5,8 @@ Eénpagina-website, alleen in het Nederlands. Gewone HTML, geen build nodig. Ope
 ## Inhoud
 
 - `index.html`: de hele pagina (stijl en het scriptje voor het formulier zitten erin)
-- `images/`: de vier foto's (gecomprimeerd, max. 2000 px breed)
+- `images/`: de foto's (gecomprimeerd, max. 2000 px breed) en `favicon.png` (192 px)
+- `favicon.ico`: het icoontje in de browsertab en naast de site in Google. Google pikt een nieuw icoon pas na enkele dagen tot weken op.
 - `robots.txt` en `sitemap.xml`: voor Google. Pas `lastmod` in de sitemap aan als de inhoud flink verandert.
 - `CNAME`: zegt aan GitHub Pages dat de site op saxofoonles.be draait
 - `.nojekyll`: zorgt dat GitHub de bestanden ongewijzigd toont
