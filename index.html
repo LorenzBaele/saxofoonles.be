@@ -29,13 +29,19 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{
   /* De oude donkere verloop-laag gaf zichtbare verticale strepen; het wegvloeien hierboven vervangt hem */
   .hero-fade{display:none}
 }
+/* Heel brede schermen (ultrawide): de foto groeit niet meer mee met de breedte, anders verdwijnt het hoofd boven de banner.
+   De fotokader is maximaal 2,2 keer zo breed als de banner hoog is, en blijft naast de tekst staan. */
+@supports (width:1cqh){
+  .hero-foto,.hero-note{container-type:size;transform:none!important}
+  .hero-kader{width:min(100cqw,220cqh)!important;left:calc(50% - .6 * min(100cqw,220cqh))!important}
+}
 /* Smaller dan 1051px zou de foto achter de tekst schuiven: dan de mobiele hero, foto boven de tekst */
 @media (max-width:1050px){
   #top{display:block!important}
   #top>div:last-child{padding:310px 48px 64px!important}
   #top>div:last-child>div{margin-left:0!important}
   .hero-foto,.hero-note{transform:none!important;height:600px!important}
-  .hero-kader{top:0!important;height:100%!important;min-height:0!important;aspect-ratio:auto!important;transform:none!important}
+  .hero-kader{top:0!important;left:0!important;width:100%!important;height:100%!important;min-height:0!important;aspect-ratio:auto!important;transform:none!important}
   .hero-img{object-position:calc(70vw - 355px) 0}
   .hero-fade{display:none}
   .hero-shade{display:block;position:absolute;left:0;top:0;right:0;bottom:0;background:linear-gradient(to bottom,rgba(28,20,16,0) 0,rgba(28,20,16,0) 200px,rgba(28,20,16,.78) 360px,#1C1410 600px)}
@@ -55,7 +61,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{
 }
 /* Contact onder elkaar: titel, formulier, uitleg, gegevens */
 @media (max-width:1051px){
-  #contact>div{flex-direction:column;gap:32px!important}
+  #contact>div{flex-direction:column;flex-wrap:nowrap!important;gap:32px!important}
   .contact-info{display:contents}
   #contact h2{margin-bottom:0!important}
   #contact form{order:1;flex:none!important;padding-top:0!important}
@@ -176,7 +182,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{
 <!-- LESSEN -->
 <div id="lessen" style="max-width: 1280px; margin: 0 auto; padding: 35px 48px 24px; box-sizing: border-box">
 <h2 style="font-family: 'Barlow Semi Condensed', sans-serif; font-weight: 700; font-size: 44px; line-height: 1.1; letter-spacing: 0.02em; margin: 0 0 40px">De lessen</h2>
-<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px">
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(280px, 100%), 1fr)); gap: 24px">
 <div style="background: #FFFFFF; border-radius: 12px; padding: 32px; box-shadow: 0 20px 25px -5px rgba(28,20,16,0.06), 0 8px 10px -6px rgba(28,20,16,0.06)">
 <div style="width: 40px; height: 4px; border-radius: 2px; background-image: linear-gradient(to right, #B93A0C, #9A6A0B); margin-bottom: 20px"></div>
 <h3 style="font-family: 'Barlow Semi Condensed', sans-serif; font-weight: 700; font-size: 24px; line-height: 1.2; margin: 0 0 10px">Hoe lang duurt een les?</h3>
@@ -198,7 +204,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{
 </div>
 
 <h2 style="font-family: 'Barlow Semi Condensed', sans-serif; font-weight: 700; font-size: 44px; line-height: 1.1; letter-spacing: 0.02em; margin: 56px 0 40px">Wat wil je bereiken?</h2>
-<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px">
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(280px, 100%), 1fr)); gap: 24px">
 <div style="background: #FFFFFF; border-radius: 12px; padding: 32px; box-shadow: 0 20px 25px -5px rgba(28,20,16,0.06), 0 8px 10px -6px rgba(28,20,16,0.06)">
 <div style="width: 40px; height: 4px; border-radius: 2px; background-image: linear-gradient(to right, #B93A0C, #9A6A0B); margin-bottom: 20px"></div>
 <h3 style="font-family: 'Barlow Semi Condensed', sans-serif; font-weight: 700; font-size: 24px; line-height: 1.2; margin: 0 0 10px">Nummers leren spelen</h3>
@@ -230,7 +236,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{
 </div>
 <div style="position: relative; max-width: 1280px; margin: 0 auto; padding: 72px 48px 72px; box-sizing: border-box">
 <h2 style="font-family: 'Barlow Semi Condensed', sans-serif; font-weight: 700; font-size: 44px; line-height: 1.1; letter-spacing: 0.02em; margin: 0 0 40px">Tarieven</h2>
-<div class="tarieven-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px">
+<div class="tarieven-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr)); gap: 24px">
 <div style="background: #FFFFFF; border-radius: 12px; padding: 40px; box-shadow: 0 20px 25px -5px rgba(28,20,16,0.06), 0 8px 10px -6px rgba(28,20,16,0.06)">
 <div style="font-family: 'Barlow Semi Condensed', sans-serif; font-weight: 600; font-size: 20px; letter-spacing: 0.03em; text-transform: uppercase; color: #5A4B42; margin-bottom: 4px">30 minuten</div>
 <div style="font-family: 'Barlow Semi Condensed', sans-serif; font-weight: 700; font-size: 96px; line-height: 1; letter-spacing: 0.01em; color: #1C1410">€30</div>
@@ -264,7 +270,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{
 
 <!-- OVER MIJ -->
 <div id="over-mij" style="max-width: 1280px; margin: 0 auto; padding: 112px 48px 24px; box-sizing: border-box">
-<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 0 64px; align-items: center">
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(320px, 100%), 1fr)); gap: 0 64px; align-items: center">
 <div>
 <div style="position: relative; padding: 0 0 36px 0">
 <div aria-hidden="true" style="position: absolute; left: -22px; top: 28px; right: 26px; bottom: 0; border-radius: 18px; background: linear-gradient(135deg, #B93A0C 0%, #F6AE45 100%); transform: rotate(-3.5deg); opacity: 0.9"></div>
@@ -299,7 +305,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{
 <dl class="contact-gegevens" style="margin: 0; border-top: 1px solid #E6DACB">
 <div style="display: flex; justify-content: space-between; align-items: baseline; padding: 18px 0; flex-wrap: wrap; gap: 4px 16px; border-bottom: 1px solid #E6DACB">
 <dt style="font-size: 12px; text-transform: uppercase; letter-spacing: 0.18em; color: #5A4B42">E-mail</dt>
-<dd style="margin: 0; color: #1C1410"><a class="info-link" href="mailto:lorenzbaele.booking@gmail.com">lorenzbaele.booking@gmail.com</a></dd>
+<dd style="margin: 0; color: #1C1410; min-width: 0; overflow-wrap: anywhere"><a class="info-link" href="mailto:lorenzbaele.booking@gmail.com">lorenzbaele.booking@gmail.com</a></dd>
 </div>
 <div style="display: flex; justify-content: space-between; align-items: baseline; padding: 18px 0; flex-wrap: wrap; gap: 4px 16px; border-bottom: 1px solid #E6DACB">
 <dt style="font-size: 12px; text-transform: uppercase; letter-spacing: 0.18em; color: #5A4B42">Locatie</dt>
