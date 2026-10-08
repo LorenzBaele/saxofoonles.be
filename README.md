@@ -30,6 +30,23 @@ DNS bij de domeinregistrar:
 - vier A-records voor `@` naar: `185.199.108.153`, `185.199.109.153`, `185.199.110.153`, `185.199.111.153`
 - een CNAME-record voor `www` naar `lorenzbaele.github.io`
 
+## Google setup (October 2026)
+
+### Google Business Profile
+- Owner account: lorenzbaele.booking@gmail.com (verified ✔).
+- Website: https://saxofoonles.be/
+- Address: studio in Gent, shown publicly. When the studio moves, update it on Google as well as on the site.
+- Services (custom): Saxofoonles 30 min (€30), Saxofoonles 60 min (€55), Saxofoonles voor kinderen 30min (€30), Saxofoonles voor kinderen 60min (€55). When the prices on the site change, change them here too.
+- Saxophone rental is intentionally only on the website, not on Google.
+
+### Google Search Console
+- Domain property saxofoonles.be, owned by lorenzbaele.booking@gmail.com.
+- Verified via a DNS TXT record (google-site-verification=...) in the Hoasted Zone Editor. Never delete this record.
+- Indexing of https://saxofoonles.be requested on 8 October 2026. Check with: site:saxofoonles.be
+
+### Trustpilot
+- A business account exists but is not linked from the website on purpose. Reviews go to Google.
+
 ## Dingen die je later zelf aanpast
 
 - Tekst en prijzen: gewoon in `index.html` zoeken en aanpassen.
