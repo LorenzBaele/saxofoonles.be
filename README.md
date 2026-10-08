@@ -25,30 +25,16 @@ De site draait via GitHub Pages vanuit de repository [LorenzBaele/saxofoonles.be
 
 Instellingen (Settings, Pages): Source "Deploy from a branch", custom domain `saxofoonles.be`, "Enforce HTTPS" aan.
 
-DNS bij de domeinregistrar:
+DNS bij de domeinregistrar (Hoasted, Zone Editor):
 
 - vier A-records voor `@` naar: `185.199.108.153`, `185.199.109.153`, `185.199.110.153`, `185.199.111.153`
 - een CNAME-record voor `www` naar `lorenzbaele.github.io`
+- een TXT-record `google-site-verification=...` voor Google Search Console. Nooit verwijderen.
 
-## Google setup (October 2026)
+## Google (ingesteld in oktober 2026)
 
-### Google Business Profile
-- Owner account: lorenzbaele.booking@gmail.com (verified ✔).
-- Website: https://saxofoonles.be/
-- Address: studio in Gent, shown publicly. When the studio moves, update it on Google as well as on the site.
-- Services (custom): Saxofoonles 30 min (€30), Saxofoonles 60 min (€55), Saxofoonles voor kinderen 30min (€30), Saxofoonles voor kinderen 60min (€55). When the prices on the site change, change them here too.
-- Saxophone rental is intentionally only on the website, not on Google.
+Alles staat op het account lorenzbaele.booking@gmail.com.
 
-### Google Search Console
-- Domain property saxofoonles.be, owned by lorenzbaele.booking@gmail.com.
-- Verified via a DNS TXT record (google-site-verification=...) in the Hoasted Zone Editor. Never delete this record.
-- Indexing of https://saxofoonles.be requested on 8 October 2026. Check with: site:saxofoonles.be
-
-### Trustpilot
-- A business account exists but is not linked from the website on purpose. Reviews go to Google.
-
-## Dingen die je later zelf aanpast
-
-- Tekst en prijzen: gewoon in `index.html` zoeken en aanpassen.
-- Verhuizing naar Sint-Lievens-Houtem: zoek op "Gent" (staat in de lessenkaart, in "Over mij" en in de contacttabel).
-- De korte video voor in de lessen is nog niet toegevoegd.
+- **Google Bedrijfsprofiel** (geverifieerd): website https://saxofoonles.be/, adres van de studio in Gent (publiek zichtbaar). Diensten: Saxofoonles 30 min (€30), Saxofoonles 60 min (€55), Saxofoonles voor kinderen 30 min (€30) en Saxofoonles voor kinderen 60 min (€55). Saxofoonverhuur staat bewust alleen op de website, niet op Google.
+- **Google Search Console**: domeineigendom saxofoonles.be, geverifieerd via het TXT-record hierboven. Indexering van https://saxofoonles.be aangevraagd op 8 oktober 2026. Controleren door `site:saxofoonles.be` in Google te zoeken.
+- **Trustpilot**: er bestaat een bedrijfsaccount, maar dat staat bewust niet op de website. Reviews gaan naar Google.
