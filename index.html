@@ -74,6 +74,12 @@ html{scroll-behavior:auto}
 body{overflow-x:hidden;background:#FBF6EE}
 a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{outline:3px solid #D9701F;outline-offset:2px}
 .hero-shade{display:none}
+/* Tekstlink met pijltje, voor de rustigere oproepen */
+.tekstlink{color:#B93A0C;text-decoration:none;font-family:'Barlow Semi Condensed',sans-serif;font-weight:600;font-size:17px;letter-spacing:0.04em;text-transform:uppercase;border-bottom:1px solid rgba(185,58,12,.35);padding-bottom:2px;transition:color .25s ease,border-color .25s ease}
+.tekstlink::after{content:"\00a0\00a0→"}
+.tekstlink:hover{color:#1C1410;border-color:#1C1410}
+.tekstlink-licht{color:#F5B942;border-color:rgba(245,185,66,.4)}
+.tekstlink-licht:hover{color:#FFFFFF;border-color:#FFFFFF}
 .noot-br{display:none}
 /* Brede schermen: het belichte gordijn rechts in de foto laten wegvloeien in de achtergrond */
 @media (min-width:1051px){
@@ -302,7 +308,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{
 </figure>
 </section>
 <div style="margin-top: 32px">
-<a href="#contact" style="display: inline-block; background: #B93A0C; color: #FFFFFF; text-decoration: none; font-family: 'Barlow Semi Condensed', sans-serif; font-weight: 600; font-size: 18px; letter-spacing: 0.03em; text-transform: uppercase; padding: 14px 28px; border-radius: 6px">Nog een vraag?</a>
+<a href="#contact" class="tekstlink">Nog een vraag?</a>
 </div>
 
 <h2 style="font-family: 'Barlow Semi Condensed', sans-serif; font-weight: 700; font-size: 44px; line-height: 1.1; letter-spacing: 0.02em; margin: 56px 0 40px">Wat wil je bereiken?</h2>
@@ -324,7 +330,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{
 </div>
 </div>
 <div style="margin-top: 32px">
-<a href="#contact" style="display: inline-block; background: #B93A0C; color: #FFFFFF; text-decoration: none; font-family: 'Barlow Semi Condensed', sans-serif; font-weight: 600; font-size: 18px; letter-spacing: 0.03em; text-transform: uppercase; padding: 14px 28px; border-radius: 6px">Vertel me je doel</a>
+<a href="#contact" class="tekstlink">Vertel me je doel</a>
 </div>
 </div>
 
@@ -370,7 +376,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{
 <h2 style="font-family: 'Barlow Semi Condensed', sans-serif; font-weight: 700; font-size: 44px; line-height: 1.1; letter-spacing: 0.02em; margin: 0 0 14px">Saxofoon huren</h2>
 <p style="margin: 0; color: #D5C4B8; font-size: 20px">Je kunt bij mij een saxofoon huren, per semester of per schooljaar. Je houdt de saxofoon bij je, zodat je dagelijks kunt oefenen. Vraag er gerust naar via het contactformulier.</p>
 </div>
-<a href="#contact" style="background: #B93A0C; color: #FFFFFF; text-decoration: none; font-family: 'Barlow Semi Condensed', sans-serif; font-weight: 600; font-size: 18px; letter-spacing: 0.03em; text-transform: uppercase; padding: 14px 28px; border-radius: 6px">Vraag naar verhuur</a>
+<a href="#contact" class="tekstlink tekstlink-licht">Vraag naar verhuur</a>
 </div>
 </div>
 
@@ -391,7 +397,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{
 </div>
 <div class="over-tekst">
 <h2 style="font-family: 'Caveat', cursive; font-weight: 700; font-size: 64px; line-height: 1.05; letter-spacing: 0; color: #B93A0C; margin: 0 0 20px; transform: rotate(-2deg); transform-origin: left center">Hoi, ik ben Lorenz.</h2>
-<p style="margin: 0 0 18px; color: #5A4B42; font-size: 20px; line-height: 1.65">Ik ben een muzikant uit Gent en speel al meer dan 15 jaar piano en saxofoon. Het brengt me enorm veel plezier om anderen saxofoon aan te leren. Ik word blij van het genot waarmee mensen hun eerste noot blazen, en van de voldoening als een moeilijk nummer na vele dagen oefenen eindelijk lukt. Daarom geef ik met plezier les.<br>Naast het lesgeven speel ik ook in verschillende bands, elk met een eigen stijl en karakter. In sommige bands speel ik zelfs piano.</p>
+<p style="margin: 0 0 18px; color: #5A4B42; font-size: 20px; line-height: 1.65">Ik ben een muzikant uit Gent en speel al meer dan 15 jaar muziek. Het brengt me enorm veel plezier om anderen saxofoon aan te leren. Ik word blij van het genot waarmee mensen hun eerste noot blazen, en van de voldoening als een moeilijk nummer na vele dagen oefenen eindelijk lukt. Daarom geef ik met plezier les.<br>Naast het lesgeven speel ik ook in verschillende bands, elk met een eigen stijl en karakter. Die ervaring op het podium neem ik mee in mijn lessen: hoe je samenspeelt, hoe je met zenuwen omgaat en hoe je echt muziek maakt in plaats van alleen noten.</p>
 
 <a href="https://www.instagram.com/lorenzbaele/" style="font-family: 'Barlow Semi Condensed', sans-serif; font-weight: 600; font-size: 17px; letter-spacing: 0.03em; text-transform: uppercase; text-decoration: none">Filmpjes op Instagram: @lorenzbaele ›</a>
 </div>
@@ -407,7 +413,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{
 <div style="background: #FFFFFF; border-radius: 12px; padding: 56px; box-sizing: border-box; box-shadow: 0 20px 25px -5px rgba(28,20,16,0.06), 0 8px 10px -6px rgba(28,20,16,0.06); display: flex; flex-wrap: wrap; gap: 64px; align-items: stretch">
 <div class="contact-info" style="flex: 1 1 340px; min-width: 0">
 <h2 style="font-family: 'Barlow Semi Condensed', sans-serif; font-weight: 700; font-size: clamp(40px, 5vw, 64px); line-height: 1.05; letter-spacing: 0.02em; margin: 0 0 24px; color: #3B2F28">Contact</h2>
-<p class="contact-tekst" style="margin: 0 0 40px; color: #5A4B42; font-size: 18px; line-height: 1.6; max-width: 420px">Stuur me een bericht, dan neem ik contact met je op. Het helpt me als je erbij zet voor wie de les is (jezelf of je kind), wat je graag wilt bereiken, of je een les van 30 minuten of een uur wilt, wanneer het jou past en of je liever bij mij in de studio of bij jou thuis les volgt. Heb je nog geen saxofoon? Zeg het gerust, dan kijken we ook naar de verhuur.</p>
+<p class="contact-tekst" style="margin: 0 0 40px; color: #5A4B42; font-size: 18px; line-height: 1.6; max-width: 420px">Stuur me gerust een bericht, ook als je nog niet precies weet wat je wilt. Een paar woorden volstaan, de rest zoeken we samen uit. Nog geen saxofoon? Geen probleem, die kun je bij mij huren.</p>
 <dl class="contact-gegevens" style="margin: 0; border-top: 1px solid #E6DACB">
 <div style="display: flex; justify-content: space-between; align-items: baseline; padding: 18px 0; flex-wrap: wrap; gap: 4px 16px; border-bottom: 1px solid #E6DACB">
 <dt style="font-size: 12px; text-transform: uppercase; letter-spacing: 0.18em; color: #5A4B42">E-mail</dt>
