@@ -23,8 +23,8 @@
   "@type": "LocalBusiness",
   "@id": "https://saxofoonles.be/#saxofoonles",
   "name": "saxofoonles.be",
-  "founder": { "@type": "Person", "@id": "https://lorenzbaele.be/#lorenz", "name": "Lorenz Baele", "url": "https://lorenzbaele.be/" },
-  "description": "Privélessen saxofoon op jouw maat, ook zonder voorkennis. In mijn studio in Gent of bij je thuis.",
+  "founder": { "@type": "Person", "@id": "https://lorenzbaele.be/#lorenz", "name": "Lorenz Baele", "url": "https://lorenzbaele.be/", "sameAs": ["https://www.instagram.com/lorenzbaele/"] },
+  "description": "Privélessen saxofoon in Gent voor kinderen en volwassenen, van beginner tot gevorderd, ook zonder voorkennis. In mijn studio, bij je thuis of online, in het Nederlands of het Engels.",
   "url": "https://saxofoonles.be/",
   "image": "https://saxofoonles.be/images/banner-lorenz.jpg",
   "email": "lorenzbaele.booking@gmail.com",
@@ -39,6 +39,8 @@
     "@type": "City",
     "name": "Gent"
   },
+  "knowsLanguage": ["nl", "en"],
+  "knowsAbout": ["Saxofoon", "Altsaxofoon", "Tenorsaxofoon", "Sopraansaxofoon", "Baritonsaxofoon", "Pop", "Rock", "Jazz", "Funk", "Soul", "Klassieke muziek", "Noten lezen"],
   "hasOfferCatalog": {
     "@type": "OfferCatalog",
     "name": "Saxofoonlessen",
@@ -54,6 +56,22 @@
         "price": "55",
         "priceCurrency": "EUR",
         "itemOffered": { "@type": "Service", "name": "Saxofoonles 1 uur" }
+      },
+      {
+        "@type": "Offer",
+        "price": "30",
+        "priceCurrency": "EUR",
+        "itemOffered": { "@type": "Service", "name": "Saxofoonles voor kinderen 30 minuten" }
+      },
+      {
+        "@type": "Offer",
+        "price": "55",
+        "priceCurrency": "EUR",
+        "itemOffered": { "@type": "Service", "name": "Saxofoonles voor kinderen 1 uur" }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": { "@type": "Service", "name": "Saxofoon huren", "description": "Een saxofoon huren per semester of per schooljaar." }
       }
     ]
   }
@@ -155,6 +173,31 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{
   .studio-foto::before{content:"";position:absolute;left:0;right:0;top:0;height:36px;background:linear-gradient(#FFFFFF,rgba(255,255,255,.9) 20%,rgba(255,255,255,.65) 40%,rgba(255,255,255,.35) 60%,rgba(255,255,255,.1) 80%,rgba(255,255,255,0));z-index:1;pointer-events:none}
   .studio-foto figcaption{font-size:30px;left:18px;bottom:12px}
 }
+/* Veelgestelde vragen: titel en uitleg bovenaan, de vragen in twee kaarten naast elkaar om open te klappen.
+   De antwoorden staan ook dichtgeklapt in de HTML, zodat Google en AI-zoekmachines ze lezen */
+.faq-kolommen{display:grid;grid-template-columns:1fr 1fr;gap:24px;align-items:start}
+.faq{background:#FFFFFF;border-radius:12px;padding:8px 40px;box-shadow:0 20px 25px -5px rgba(28,20,16,.06),0 8px 10px -6px rgba(28,20,16,.06)}
+.faq details{border-bottom:1px solid #E6DACB}
+.faq details:last-child{border-bottom:0}
+.faq summary{list-style:none;cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:22px 0}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"";flex:none;width:10px;height:10px;margin-right:4px;border-right:2.5px solid #B93A0C;border-bottom:2.5px solid #B93A0C;transform:translateY(-3px) rotate(45deg);transition:transform .25s ease}
+.faq details[open] summary::after{transform:translateY(3px) rotate(-135deg)}
+.faq summary:focus-visible{outline:3px solid #D9701F;outline-offset:2px;border-radius:4px}
+.faq summary h3{margin:0;font-family:'Barlow Semi Condensed',sans-serif;font-weight:700;font-size:22px;line-height:1.25;transition:color .25s ease}
+.faq summary:hover h3{color:#B93A0C}
+.faq details>p{margin:-6px 0 24px;color:#5A4B42}
+/* Net breed genoeg voor twee kaarten: wat minder witruimte, zodat de vragen op één regel blijven */
+@media (min-width:1000px) and (max-width:1099px){
+  .faq{padding:8px 28px}
+}
+/* Smaller: de twee kaarten sluiten op elkaar aan tot één lijst */
+@media (max-width:999px){
+  .faq-kolommen{grid-template-columns:1fr;gap:0}
+  .faq-kolommen>.faq:first-child{border-radius:12px 12px 0 0;padding-bottom:0}
+  .faq-kolommen>.faq:first-child details:last-child{border-bottom:1px solid #E6DACB}
+  .faq-kolommen>.faq:last-child{border-radius:0 0 12px 12px;padding-top:0}
+}
 /* Contact onder elkaar: titel, formulier, uitleg, gegevens */
 @media (max-width:1051px){
   #contact>div{flex-direction:column;flex-wrap:nowrap!important;gap:32px!important}
@@ -171,7 +214,14 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{
   .nav-links{justify-content:center!important}
 }
 @media (max-width:720px){
-  #lessen,#over-mij,#contact{padding-left:20px!important;padding-right:20px!important}
+  #lessen,#over-mij,#vragen,#contact{padding-left:20px!important;padding-right:20px!important}
+  #vragen{padding-top:56px!important}
+  #vragen h2{font-size:34px!important;margin-bottom:12px!important}
+  #vragen .vragen-intro{font-size:18px!important;margin-bottom:28px!important}
+  .faq{padding:4px 20px}
+  .faq summary{padding:18px 0!important}
+  .faq summary h3{font-size:19px}
+  .faq details>p{font-size:16px;line-height:1.5;margin-bottom:20px!important}
   #lessen{padding-top:32px!important}
   /* Mobiel compacter: minder scrollen */
   .nav-links a{padding:6px 0!important}
@@ -231,6 +281,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{
 <a href="#top" class="nav-logo" style="font-family: 'Barlow Semi Condensed', sans-serif; font-weight: 700; font-size: 28px; letter-spacing: 0.02em; text-decoration: none; background-image: linear-gradient(to right, #FF7A3D, #F5B942); -webkit-background-clip: text; background-clip: text; color: transparent; -webkit-text-fill-color: transparent">saxofoonles.be</a>
 <div class="nav-links nav-links-right" style="display: flex; flex-wrap: wrap; align-items: center; gap: 4px 28px; justify-content: flex-end; font-family: 'Barlow Semi Condensed', sans-serif; font-weight: 600; font-size: 17px; letter-spacing: 0.03em; text-transform: uppercase">
 <a href="#over-mij" style="color: #FFFFFF; text-decoration: none; padding: 12px 0">Over mij</a>
+<a href="#vragen" style="color: #FFFFFF; text-decoration: none; padding: 12px 0">Vragen</a>
 <a href="#contact" style="color: #FFFFFF; text-decoration: none; padding: 12px 0">Contact</a>
 </div>
 </div>
@@ -300,7 +351,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{
 <div style="background: #FFFFFF; border-radius: 12px; padding: 32px; box-shadow: 0 20px 25px -5px rgba(28,20,16,0.06), 0 8px 10px -6px rgba(28,20,16,0.06)">
 <div style="width: 40px; height: 4px; border-radius: 2px; background-image: linear-gradient(to right, #B93A0C, #9A6A0B); margin-bottom: 20px"></div>
 <h3 style="font-family: 'Barlow Semi Condensed', sans-serif; font-weight: 700; font-size: 24px; line-height: 1.2; margin: 0 0 10px">Waar gaat de les door?</h3>
-<p style="margin: 0; color: #5A4B42">Dat kan in mijn studio in Gent of bij je thuis. Aan jou de keuze.</p>
+<p style="margin: 0; color: #5A4B42">Dat kan in mijn studio in Gent, bij je thuis of online. Aan jou de keuze.</p>
 </div>
 </div>
 <!-- Foto van de studio, met een handgeschreven onderschrift -->
@@ -409,6 +460,61 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{
 <svg width="86" height="64" viewBox="0 0 86 64" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex: none; margin-top: -6px; width: 79px; height: 67px; transform: rotate(-23deg)"><path d="M 78 54 C 46 58, 18 44, 12 12"></path><path d="M 6.7 20.9 L 12 8 L 26.5 19.1"></path></svg><div style="font-family: 'Caveat', cursive; font-weight: 700; font-size: 34px; line-height: 1.1; transform: rotate(-3deg); transform-origin: left center; padding-top: 22px">Dit ben ik,<br class="noot-br"> aan het spelen!</div>
 
 </div>
+</div>
+</div>
+
+<!-- VEELGESTELDE VRAGEN -->
+<div id="vragen" style="max-width: 1280px; margin: 0 auto; padding: 88px 48px 24px; box-sizing: border-box">
+<h2 style="font-family: 'Barlow Semi Condensed', sans-serif; font-weight: 700; font-size: 44px; line-height: 1.1; letter-spacing: 0.02em; margin: 0 0 16px">Veelgestelde vragen</h2>
+<p class="vragen-intro" style="margin: 0 0 40px; max-width: 680px; color: #5A4B42; font-size: 20px; line-height: 1.6">Ik geef privélessen saxofoon in Gent, aan kinderen en volwassenen, van beginner tot gevorderd. Hier vind je de antwoorden op de meest gestelde vragen.</p>
+<div class="faq-kolommen">
+<div class="faq">
+<details>
+<summary><h3>Wat kost een saxofoonles?</h3></summary>
+<p>Een les van 30 minuten kost €30, een les van 1 uur kost €55. Kom ik bij je thuis lesgeven? Dan komt de verplaatsing erbij, volgens de Belgische kilometervergoeding.</p>
+</details>
+<details>
+<summary><h3>Kan ik beginnen zonder voorkennis?</h3></summary>
+<p>Ja, zeker. Je hebt geen ervaring nodig en je hoeft geen noten te kunnen lezen. Je maakt vanaf de eerste les muziek. Noten lezen leer ik je gaandeweg, als je dat wilt.</p>
+</details>
+<details>
+<summary><h3>Geef je ook les aan kinderen?</h3></summary>
+<p>Ja, ik geef les aan kinderen, tieners en volwassenen. Er is geen vaste minimumleeftijd: dat hangt af van het kind, bijvoorbeeld of het de saxofoon al goed kan vasthouden en genoeg adem heeft. Twijfel je? Stuur me een bericht, dan bekijken we het samen.</p>
+</details>
+<details>
+<summary><h3>Kan ik eerst een proefles volgen?</h3></summary>
+<p>Ja. Je eerste les is een gewone les aan het gewone tarief, en je zit nergens aan vast. Daarna beslis je zelf of je verder wilt, en hoe vaak.</p>
+</details>
+<details>
+<summary><h3>Waar gaan de lessen door?</h3></summary>
+<p>In mijn studio in Gent, bij je thuis of online. Aan huis kom ik in Gent en omgeving.</p>
+</details>
+</div>
+<div class="faq">
+<details>
+<summary><h3>Kan ik ook online les volgen?</h3></summary>
+<p>Ja, via een videogesprek. Handig als je wat verder woont of weinig tijd hebt om je te verplaatsen.</p>
+</details>
+<details>
+<summary><h3>Welke saxofoons kan ik leren spelen?</h3></summary>
+<p>Alle vier: de altsax, tenorsax, sopraansax en baritonsax. Weet je nog niet welke je wilt? Dan kiezen we er samen een.</p>
+</details>
+<details>
+<summary><h3>Welke muziekstijlen kan ik leren?</h3></summary>
+<p>Wat jij graag speelt: pop en rock, jazz, funk en soul of klassiek. We kiezen samen de nummers waar jij zin in hebt.</p>
+</details>
+<details>
+<summary><h3>Heb ik een eigen saxofoon nodig?</h3></summary>
+<p>Nee. Je kunt bij mij een saxofoon huren, per semester of per schooljaar. Je houdt hem bij je thuis, zodat je elke dag kunt oefenen.</p>
+</details>
+<details>
+<summary><h3>Geef je ook les in het Engels?</h3></summary>
+<p>Ja, dat kan. <span lang="en">Yes, I also teach saxophone in English: in my studio in Ghent, at your home or online, for children and adults of every level.</span></p>
+</details>
+</div>
+</div>
+<div style="margin-top: 32px">
+<a href="#contact" class="tekstlink" data-bericht="Hoi Lorenz,&#10;Ik heb een vraag: ">Staat je vraag er niet bij?</a>
 </div>
 </div>
 
