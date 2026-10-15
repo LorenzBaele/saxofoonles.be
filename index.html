@@ -272,8 +272,8 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{
 <div style="position: relative; width: 100%; max-width: 1280px; margin: 0 auto; padding: 96px 48px; box-sizing: border-box">
 <div style="margin-left: auto; max-width: 520px">
 <h1 style="font-family: 'Barlow Semi Condensed', sans-serif; font-weight: 700; font-size: clamp(40px, 4.4vw, 60px); line-height: 1.05; letter-spacing: 0.02em; color: #FFFFFF; margin: 0 0 24px">Leer <span style="background-image: linear-gradient(to right, #FF7A3D, #F5B942); -webkit-background-clip: text; background-clip: text; color: transparent; -webkit-text-fill-color: transparent">saxofoon</span> spelen, met lessen op jouw maat</h1>
-<p style="font-size: 22px; line-height: 1.5; color: #D5C4B8; max-width: 540px; margin: 0 0 36px">Maak meteen muziek, ook zonder voorkennis of ervaring dankzij privélessen gespecialiseerd in beginners, vanaf de eerste noot.</p>
-<a href="#contact" style="display: inline-block; background: #B93A0C; color: #FFFFFF; text-decoration: none; font-family: 'Barlow Semi Condensed', sans-serif; font-weight: 600; font-size: 18px; letter-spacing: 0.03em; text-transform: uppercase; padding: 14px 28px; border-radius: 6px">Neem contact op</a>
+<p style="font-size: 22px; line-height: 1.5; color: #D5C4B8; max-width: 540px; margin: 0 0 36px">Maak meteen muziek, ook zonder voorkennis of ervaring dankzij privélessen voor elk niveau, vanaf de eerste noot.</p>
+<a href="#contact" data-bericht="Hoi Lorenz,&#10;Ik wil graag saxofoon leren spelen. Kan ik bij jou les volgen?" style="display: inline-block; background: #B93A0C; color: #FFFFFF; text-decoration: none; font-family: 'Barlow Semi Condensed', sans-serif; font-weight: 600; font-size: 18px; letter-spacing: 0.03em; text-transform: uppercase; padding: 14px 28px; border-radius: 6px">Neem contact op</a>
 </div>
 </div>
 </div>
@@ -308,7 +308,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{
 </figure>
 </section>
 <div style="margin-top: 32px">
-<a href="#contact" class="tekstlink">Nog een vraag?</a>
+<a href="#contact" class="tekstlink" data-bericht="Hoi Lorenz,&#10;Ik heb nog een vraag over de lessen: ">Nog een vraag?</a>
 </div>
 
 <h2 style="font-family: 'Barlow Semi Condensed', sans-serif; font-weight: 700; font-size: 44px; line-height: 1.1; letter-spacing: 0.02em; margin: 56px 0 40px">Wat wil je bereiken?</h2>
@@ -330,7 +330,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{
 </div>
 </div>
 <div style="margin-top: 32px">
-<a href="#contact" class="tekstlink">Vertel me je doel</a>
+<a href="#contact" class="tekstlink" data-bericht="Hoi Lorenz,&#10;Dit wil ik graag bereiken met de saxofoon: ">Vertel me je doel</a>
 </div>
 </div>
 
@@ -359,7 +359,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{
 </div>
 </div>
 <div class="tarieven-onder" style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 20px 24px; margin-top: 28px">
-<a href="#contact" style="background: #B93A0C; color: #FFFFFF; text-decoration: none; font-family: 'Barlow Semi Condensed', sans-serif; font-weight: 600; font-size: 18px; letter-spacing: 0.03em; text-transform: uppercase; padding: 14px 28px; border-radius: 6px">Plan je eerste les</a>
+<a href="#contact" data-bericht="Hoi Lorenz,&#10;Ik wil graag mijn eerste les plannen." style="background: #B93A0C; color: #FFFFFF; text-decoration: none; font-family: 'Barlow Semi Condensed', sans-serif; font-weight: 600; font-size: 18px; letter-spacing: 0.03em; text-transform: uppercase; padding: 14px 28px; border-radius: 6px">Plan je eerste les</a>
 <p style="display: block; box-sizing: border-box; width: 401px; margin: 0 0 0 auto; padding: 10px 16px; background: rgba(251,246,238,0.6); -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px); border-radius: 10px; color: #1C1410; height: 77px">Kom ik naar je toe? Dan reken ik de verplaatsing aan volgens de Belgische kilometervergoeding.</p>
 </div>
 </div>
@@ -376,7 +376,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{
 <h2 style="font-family: 'Barlow Semi Condensed', sans-serif; font-weight: 700; font-size: 44px; line-height: 1.1; letter-spacing: 0.02em; margin: 0 0 14px">Saxofoon huren</h2>
 <p style="margin: 0; color: #D5C4B8; font-size: 20px">Je kunt bij mij een saxofoon huren, per semester of per schooljaar. Je houdt de saxofoon bij je, zodat je dagelijks kunt oefenen. Vraag er gerust naar via het contactformulier.</p>
 </div>
-<a href="#contact" class="tekstlink tekstlink-licht">Vraag naar verhuur</a>
+<a href="#contact" class="tekstlink tekstlink-licht" data-bericht="Hoi Lorenz,&#10;Ik wil graag een saxofoon bij je huren. Kun je me er meer over vertellen?">Vraag naar verhuur</a>
 </div>
 </div>
 
@@ -454,6 +454,17 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{
   var form = document.getElementById('contactformulier');
   var status = document.getElementById('formulier-status');
   var button = form.querySelector('button[type="submit"]');
+  // Knoppen naar het formulier vullen het bericht alvast in met een tekstje dat bij hun sectie past.
+  // Wat de bezoeker zelf al typte, blijft staan.
+  var bericht = document.getElementById('mc-bericht');
+  var voorgevuld = '';
+  Array.prototype.forEach.call(document.querySelectorAll('a[data-bericht]'), function (a) {
+    a.addEventListener('click', function () {
+      if (bericht.value !== '' && bericht.value !== voorgevuld) return;
+      voorgevuld = a.getAttribute('data-bericht');
+      bericht.value = voorgevuld;
+    });
+  });
   form.addEventListener('submit', function (e) {
     e.preventDefault();
     button.disabled = true;
