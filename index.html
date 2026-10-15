@@ -23,7 +23,7 @@
   "@type": "LocalBusiness",
   "@id": "https://saxofoonles.be/#saxofoonles",
   "name": "saxofoonles.be",
-  "founder": { "@type": "Person", "name": "Lorenz Baele" },
+  "founder": { "@type": "Person", "@id": "https://lorenzbaele.be/#lorenz", "name": "Lorenz Baele", "url": "https://lorenzbaele.be/" },
   "description": "Privélessen saxofoon op jouw maat, ook zonder voorkennis. In mijn studio in Gent of bij je thuis.",
   "url": "https://saxofoonles.be/",
   "image": "https://saxofoonles.be/images/banner-lorenz.jpg",
@@ -81,6 +81,9 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{
 .tekstlink-licht{color:#F5B942;border-color:rgba(245,185,66,.4)}
 .tekstlink-licht:hover{color:#FFFFFF;border-color:#FFFFFF}
 .noot-br{display:none}
+/* Naam in de footer linkt naar lorenzbaele.be, rustig op de donkere achtergrond */
+.footer-link{color:inherit;text-decoration:underline;text-decoration-color:rgba(213,196,184,.4);text-underline-offset:3px;transition:color .25s ease,text-decoration-color .25s ease}
+.footer-link:hover{color:#F5B942;text-decoration-color:#F5B942}
 /* Brede schermen: het belichte gordijn rechts in de foto laten wegvloeien in de achtergrond */
 @media (min-width:1051px){
   .hero-img{-webkit-mask-image:linear-gradient(to right,#000 46%,transparent 62%);mask-image:linear-gradient(to right,#000 46%,transparent 62%)}
@@ -398,7 +401,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{
 <div class="over-tekst">
 <h2 style="font-family: 'Caveat', cursive; font-weight: 700; font-size: 64px; line-height: 1.05; letter-spacing: 0; color: #B93A0C; margin: 0 0 20px; transform: rotate(-2deg); transform-origin: left center">Hoi, ik ben Lorenz.</h2>
 <p style="margin: 0 0 18px; color: #5A4B42; font-size: 20px; line-height: 1.65">Ik ben een muzikant uit Gent en speel al meer dan 15 jaar muziek. Het geeft me enorm veel plezier om anderen saxofoon aan te leren. Ik word blij van het genot waarmee mensen hun eerste noot blazen, en van de voldoening als een moeilijk nummer na vele dagen oefenen eindelijk lukt. Daarom geef ik met plezier les.</p>
-<p style="margin: 0 0 18px; color: #5A4B42; font-size: 20px; line-height: 1.65">Naast het lesgeven speel ik ook in verschillende bands, elk met een eigen stijl en karakter. Die ervaring op het podium neem ik mee in mijn lessen: hoe je samenspeelt, hoe je met zenuwen omgaat en hoe je echt muziek maakt in plaats van alleen noten.</p>
+<p style="margin: 0 0 18px; color: #5A4B42; font-size: 20px; line-height: 1.65">Naast het lesgeven speel ik ook in <a href="https://lorenzbaele.be/">verschillende bands</a>, elk met een eigen stijl en karakter. Die ervaring op het podium neem ik mee in mijn lessen: hoe je samenspeelt, hoe je met zenuwen omgaat en hoe je echt muziek maakt in plaats van alleen noten.</p>
 
 <a href="https://www.instagram.com/lorenzbaele/" style="font-family: 'Barlow Semi Condensed', sans-serif; font-weight: 600; font-size: 17px; letter-spacing: 0.03em; text-transform: uppercase; text-decoration: none">Filmpjes op Instagram: @lorenzbaele ›</a>
 </div>
@@ -495,7 +498,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{
 <div style="position: absolute; left: -80px; bottom: -220px; width: 640px; height: 640px; border-radius: 200px; background: rgba(154,106,11,0.10); transform: rotate(35deg)"></div>
 <div style="position: relative; max-width: 1280px; margin: 0 auto; padding: 22px 48px; box-sizing: border-box; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 6px 32px">
 <div style="font-family: 'Barlow Semi Condensed', sans-serif; font-weight: 700; font-size: 24px; letter-spacing: 0.02em; background-image: linear-gradient(to right, #FF7A3D, #F5B942); -webkit-background-clip: text; background-clip: text; color: transparent; -webkit-text-fill-color: transparent">saxofoonles.be</div>
-<div style="font-size: 15px"><span style="white-space: nowrap">© 2026 Lorenz Baele</span><span class="footer-punt"> &nbsp;·&nbsp; </span><span style="white-space: nowrap">BTW BE 1026.022.646</span></div>
+<div style="font-size: 15px"><span style="white-space: nowrap">© 2026 <a class="footer-link" href="https://lorenzbaele.be/">Lorenz Baele</a></span><span class="footer-punt"> &nbsp;·&nbsp; </span><span style="white-space: nowrap">BTW BE 1026.022.646</span></div>
 </div>
 </div>
 
