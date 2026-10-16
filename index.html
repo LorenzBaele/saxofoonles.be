@@ -27,11 +27,16 @@
   "description": "Privélessen saxofoon in Gent voor kinderen en volwassenen, van beginner tot gevorderd, ook zonder voorkennis. In mijn studio, bij je thuis of online, in het Nederlands of het Engels.",
   "url": "https://saxofoonles.be/",
   "image": "https://saxofoonles.be/images/banner-lorenz.jpg",
+  "logo": "https://saxofoonles.be/images/favicon.png",
   "email": "lorenzbaele.booking@gmail.com",
-  "sameAs": ["https://share.google/q1eaXr8Y3tEJmEfM5"],
+  "vatID": "BE1026022646",
+  "sameAs": ["https://maps.google.com/?cid=5194129447733552428"],
+  "hasMap": "https://maps.google.com/?cid=5194129447733552428",
   "priceRange": "€30 - €55",
   "address": {
     "@type": "PostalAddress",
+    "streetAddress": "Heernislaan 1",
+    "postalCode": "9000",
     "addressLocality": "Gent",
     "addressCountry": "BE"
   },
@@ -100,9 +105,14 @@
 <link rel="icon" href="favicon.ico" sizes="48x48">
 <link rel="icon" href="images/favicon.png" type="image/png" sizes="192x192">
 <link rel="apple-touch-icon" href="images/favicon.png">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700&amp;family=Barlow+Semi+Condensed:wght@600;700&amp;family=Caveat:wght@700&amp;display=swap" rel="stylesheet">
+<link rel="preload" href="fonts/barlow-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/barlow-semi-condensed-700.woff2" as="font" type="font/woff2" crossorigin>
 <style>
+/* Lettertypes staan op de site zelf, niet bij Google Fonts: sneller, en er gaat geen IP-adres naar Google */
+@font-face{font-family:'Barlow';font-style:normal;font-weight:400;font-display:swap;src:url(fonts/barlow-400.woff2) format('woff2')}
+@font-face{font-family:'Barlow Semi Condensed';font-style:normal;font-weight:600;font-display:swap;src:url(fonts/barlow-semi-condensed-600.woff2) format('woff2')}
+@font-face{font-family:'Barlow Semi Condensed';font-style:normal;font-weight:700;font-display:swap;src:url(fonts/barlow-semi-condensed-700.woff2) format('woff2')}
+@font-face{font-family:'Caveat';font-style:normal;font-weight:700;font-display:swap;src:url(fonts/caveat-700.woff2) format('woff2')}
 body{margin:0}
 a{color:#B93A0C}a:hover{color:#1C1410}
 input,textarea,button{font-family:inherit}
@@ -112,6 +122,9 @@ html{scroll-behavior:auto}
 body{overflow-x:hidden;background:#FBF6EE}
 a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{outline:3px solid #D9701F;outline-offset:2px}
 .hero-shade{display:none}
+/* Klein label boven de titel, in de h1 zodat "Saxofoonles in Gent" in de belangrijkste titel staat */
+.hero-label{display:block;margin-bottom:16px;font-weight:600;font-size:18px;line-height:1.3;letter-spacing:.12em;text-transform:uppercase;color:#F5B942}
+.hero-label::before{content:"";display:inline-block;width:28px;height:3px;margin-right:12px;border-radius:2px;background-image:linear-gradient(to right,#FF7A3D,#F5B942);vertical-align:middle;transform:translateY(-2px)}
 /* Tekstlink met pijltje, voor de rustigere oproepen */
 .tekstlink{color:#B93A0C;text-decoration:none;font-family:'Barlow Semi Condensed',sans-serif;font-weight:600;font-size:17px;letter-spacing:0.04em;text-transform:uppercase;border-bottom:1px solid rgba(185,58,12,.35);padding-bottom:2px;transition:color .25s ease,border-color .25s ease}
 .tekstlink::after{content:"\00a0\00a0→"}
@@ -122,6 +135,9 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{
 /* Naam in de footer linkt naar lorenzbaele.be, rustig op de donkere achtergrond */
 .footer-link{color:inherit;text-decoration:underline;text-decoration-color:rgba(213,196,184,.4);text-underline-offset:3px;transition:color .25s ease,text-decoration-color .25s ease}
 .footer-link:hover{color:#F5B942;text-decoration-color:#F5B942}
+/* E-mailadres in de footer: ziet eruit als gewone tekst, maar opent je mailprogramma */
+.footer-mail{color:inherit;text-decoration:none;text-underline-offset:3px;transition:color .25s ease}
+.footer-mail:hover{color:#F5B942;text-decoration:underline}
 /* Brede schermen: het belichte gordijn rechts in de foto laten wegvloeien in de achtergrond */
 @media (min-width:1051px){
   .hero-img{-webkit-mask-image:linear-gradient(to right,#000 46%,transparent 62%);mask-image:linear-gradient(to right,#000 46%,transparent 62%)}
@@ -230,6 +246,8 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{
   .nav-bar{display:flex!important;flex-wrap:wrap;justify-content:center;padding:14px 20px!important}
   .nav-logo{order:-1;flex-basis:100%;text-align:center}
   .nav-links{justify-content:center!important}
+  /* Footer: elk gegeven op een eigen regel, anders blijft er een los puntje achter aan een regel */
+  .footer-punt{display:block;height:0;overflow:hidden}
 }
 @media (max-width:720px){
   #lessen,#over-mij,#vragen,#contact{padding-left:20px!important;padding-right:20px!important}
@@ -273,14 +291,13 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{
   .verhuur-bokeh>span:nth-child(3){left:-50px!important;top:auto!important;bottom:-30px}
   .verhuur-bokeh>span:nth-child(4){left:calc(100% - 30px)!important;top:45%!important}
   #tarieven>div:last-child{padding:40px 20px!important}
-  #tarieven p{width:auto!important;height:auto!important;margin-left:0!important}
+  #tarieven p{max-width:none!important;margin-left:0!important}
   .tarieven-onder{flex-direction:column-reverse;align-items:flex-start!important}
   #verhuur>div:last-child{padding:44px 20px!important;gap:24px!important}
   .lessen-kaarten{gap:12px!important}
   .lessen-kaarten>div{padding:18px 20px!important}
   .lessen-kaarten>div>div:first-child{margin-bottom:10px!important}
   #contact>div{padding:28px 22px!important}
-  .footer-punt{display:block;height:0;overflow:hidden}
 }
 </style>
 </head>
@@ -309,7 +326,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{
 <div id="top" style="position: relative; overflow: hidden; min-height: 600px; display: flex; align-items: center; background: #1C1410">
 <div class="hero-foto" style="position: absolute; left: 0; top: 0; width: 100%; height: 100%; transform-origin: 50% 22%; transform: translateX(-10%) scale(1)">
 <div class="hero-kader" style="position: absolute; left: 0; top: 22%; width: 100%; min-height: 100%; aspect-ratio: 3 / 2; transform: translateY(-22%)">
-<img class="hero-img" fetchpriority="high" decoding="async" src="images/banner-lorenz.jpg" alt="Lorenz speelt saxofoon" style="width: 100%; height: 100%; object-fit: cover; display: block; filter: sepia(0.38) saturate(1.2) hue-rotate(-10deg)">
+<img class="hero-img" fetchpriority="high" decoding="async" src="images/banner-lorenz.webp" alt="Lorenz speelt saxofoon" style="width: 100%; height: 100%; object-fit: cover; display: block; filter: sepia(0.38) saturate(1.2) hue-rotate(-10deg)">
 </div>
 </div>
 <div style="position: absolute; left: 0; top: 0; right: 0; bottom: 0; background: #1C1410; mix-blend-mode: lighten; pointer-events: none"></div>
@@ -342,8 +359,8 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{
 </div>
 <div style="position: relative; width: 100%; max-width: 1280px; margin: 0 auto; padding: 96px 48px; box-sizing: border-box">
 <div style="margin-left: auto; max-width: 520px">
-<h1 style="font-family: 'Barlow Semi Condensed', sans-serif; font-weight: 700; font-size: clamp(40px, 4.4vw, 60px); line-height: 1.05; letter-spacing: 0.02em; color: #FFFFFF; margin: 0 0 24px">Leer <span style="background-image: linear-gradient(to right, #FF7A3D, #F5B942); -webkit-background-clip: text; background-clip: text; color: transparent; -webkit-text-fill-color: transparent">saxofoon</span> spelen, met lessen op jouw maat</h1>
-<p style="font-size: 22px; line-height: 1.5; color: #D5C4B8; max-width: 540px; margin: 0 0 36px">Maak meteen muziek, ook zonder voorkennis of ervaring dankzij privélessen voor elk niveau, vanaf de eerste noot.</p>
+<h1 style="font-family: 'Barlow Semi Condensed', sans-serif; font-weight: 700; font-size: clamp(40px, 4.4vw, 60px); line-height: 1.05; letter-spacing: 0.02em; color: #FFFFFF; margin: 0 0 24px"><span class="hero-label">Saxofoonles in Gent</span> Leer <span style="background-image: linear-gradient(to right, #FF7A3D, #F5B942); -webkit-background-clip: text; background-clip: text; color: transparent; -webkit-text-fill-color: transparent">saxofoon</span> spelen, met lessen op jouw maat</h1>
+<p style="font-size: 22px; line-height: 1.5; color: #D5C4B8; max-width: 540px; margin: 0 0 36px">Maak meteen muziek, ook zonder voorkennis. Privélessen voor elk niveau, vanaf de eerste noot.</p>
 <a href="#contact" data-bericht="Hoi Lorenz,&#10;Ik wil graag saxofoon leren spelen. Kan ik bij jou les volgen?" style="display: inline-block; background: #B93A0C; color: #FFFFFF; text-decoration: none; font-family: 'Barlow Semi Condensed', sans-serif; font-weight: 600; font-size: 18px; letter-spacing: 0.03em; text-transform: uppercase; padding: 14px 28px; border-radius: 6px">Neem contact op</a>
 </div>
 </div>
@@ -395,7 +412,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{
 </div>
 <!-- Foto van de studio, met een handgeschreven onderschrift -->
 <figure class="studio-foto">
-<img loading="lazy" decoding="async" src="images/studio-gent.jpg" width="1280" height="964" alt="Mijn studio in Gent, met een piano, gitaren en twee saxofoons op een standaard">
+<img loading="lazy" decoding="async" src="images/studio-gent.webp" width="1280" height="964" alt="Mijn studio in Gent, met een piano, gitaren en twee saxofoons op een standaard">
 <div aria-hidden="true" class="studio-foto-schaduw"></div>
 <figcaption>Mijn studio in Gent</figcaption>
 </figure>
@@ -411,7 +428,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{
 <!-- VERHUUR -->
 <div id="tarieven" style="position: relative; margin-top: 0px; padding-top: 0px; padding-bottom: 0px">
 <div aria-hidden="true" style="position: absolute; left: 0; top: 0; width: 100%; height: 100%; overflow: hidden; opacity: 0.4; pointer-events: none">
-<img loading="lazy" decoding="async" src="images/achtergrond-tarieven.jpg" alt="Lorenz speelt altsaxofoon op een podium in blauw licht" style="width: 100%; height: 100%; object-fit: cover; object-position: 50% 59%; transform-origin: 50% 59%; transform: translateX(-4%) scale(1.25); display: block; filter: saturate(0.7)">
+<img loading="lazy" decoding="async" src="images/achtergrond-tarieven.webp" alt="Lorenz speelt altsaxofoon op een podium in blauw licht" style="width: 100%; height: 100%; object-fit: cover; object-position: 50% 59%; transform-origin: 50% 59%; transform: translateX(-4%) scale(1.25); display: block; filter: saturate(0.7)">
 </div>
 <div style="position: relative; max-width: 1280px; margin: 0 auto; padding: 72px 48px 72px; box-sizing: border-box">
 <div class="tarieven-kop" style="display: flex; flex-wrap: wrap; align-items: flex-end; gap: 0 28px; margin: 0 0 40px">
@@ -431,7 +448,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{
 </div>
 <div class="tarieven-onder" style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 20px 24px; margin-top: 28px">
 <a href="#contact" data-bericht="Hoi Lorenz,&#10;Ik wil graag mijn eerste les plannen." style="background: #B93A0C; color: #FFFFFF; text-decoration: none; font-family: 'Barlow Semi Condensed', sans-serif; font-weight: 600; font-size: 18px; letter-spacing: 0.03em; text-transform: uppercase; padding: 14px 28px; border-radius: 6px">Plan je eerste les</a>
-<p style="display: block; box-sizing: border-box; width: 401px; margin: 0 0 0 auto; padding: 10px 16px; background: rgba(251,246,238,0.6); -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px); border-radius: 10px; color: #1C1410; height: 77px">Kom ik naar je toe? Dan reken ik de verplaatsing aan volgens de Belgische kilometervergoeding.</p>
+<p style="display: block; box-sizing: border-box; max-width: 401px; margin: 0 0 0 auto; padding: 10px 16px; background: rgba(251,246,238,0.6); -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px); border-radius: 10px; color: #1C1410">Kom ik naar je toe? Dan reken ik de verplaatsing aan volgens de Belgische kilometervergoeding.</p>
 </div>
 </div>
 </div><div id="verhuur" style="background: #1C1410; color: #FFFFFF; margin-top: 0; position: relative; overflow: hidden">
@@ -459,11 +476,11 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{
 <div aria-hidden="true" style="position: absolute; left: -22px; top: 28px; right: 26px; bottom: 0; border-radius: 18px; background: linear-gradient(135deg, #B93A0C 0%, #F6AE45 100%); transform: rotate(-3.5deg); opacity: 0.9"></div>
 <div style="position: relative">
 <div style="position: relative; border-radius: 16px; overflow: hidden; box-shadow: 0 28px 44px -18px rgba(185,58,12,0.40), 0 10px 16px -8px rgba(28,20,16,0.22)">
-<img loading="lazy" decoding="async" src="images/portret-podium.jpg" alt="Lorenz speelt saxofoon op een podium" style="width: 100%; aspect-ratio: 4 / 5; object-fit: cover; object-position: 50% 15%; display: block; filter: sepia(0.22) saturate(1.08) contrast(1.03)">
+<img loading="lazy" decoding="async" src="images/portret-podium.webp" alt="Lorenz speelt saxofoon op een podium" style="width: 100%; aspect-ratio: 4 / 5; object-fit: cover; object-position: 50% 15%; display: block; filter: sepia(0.22) saturate(1.08) contrast(1.03)">
 <div aria-hidden="true" style="position: absolute; left: 0; top: 0; right: 0; bottom: 0; pointer-events: none; background: linear-gradient(135deg, rgba(246,174,69,0.16) 0%, rgba(246,174,69,0) 42%), linear-gradient(180deg, rgba(185,58,12,0) 55%, rgba(185,58,12,0.30) 100%); box-shadow: inset 0 0 0 1px rgba(255,225,170,0.30)"></div>
 </div>
 </div>
-<img class="over-kiekje" loading="lazy" decoding="async" src="images/kiekje-band.jpg" alt="Lorenz speelt saxofoon met zijn band op het podium" style="position: absolute; right: -34px; bottom: -6px; width: 55%; aspect-ratio: 4 / 3; object-fit: cover; object-position: 40% 50%; border: 8px solid #FFF6E6; border-radius: 6px; transform: rotate(5deg); box-shadow: 0 18px 28px -10px rgba(185,58,12,0.38); filter: sepia(0.42) saturate(0.92) contrast(1.03) hue-rotate(-8deg); display: block">
+<img class="over-kiekje" loading="lazy" decoding="async" src="images/kiekje-band.webp" alt="Lorenz speelt saxofoon met zijn band op het podium" style="position: absolute; right: -34px; bottom: -6px; width: 55%; aspect-ratio: 4 / 3; object-fit: cover; object-position: 40% 50%; border: 8px solid #FFF6E6; border-radius: 6px; transform: rotate(5deg); box-shadow: 0 18px 28px -10px rgba(185,58,12,0.38); filter: sepia(0.42) saturate(0.92) contrast(1.03) hue-rotate(-8deg); display: block">
 </div>
 </div>
 <div class="over-tekst">
@@ -549,20 +566,21 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{
 <input type="checkbox" name="botcheck" tabindex="-1" autocomplete="off" aria-hidden="true" style="display: none">
 <div style="display: flex; flex-direction: column; gap: 6px">
 <label for="mc-naam" style="font-family: 'Barlow Semi Condensed', sans-serif; font-weight: 600; font-size: 15px; letter-spacing: 0.04em; text-transform: uppercase">Naam <span aria-hidden="true" style="color: #B93A0C">*</span></label>
-<input id="mc-naam" name="name" autocomplete="name" required type="text" style="height: 52px; box-sizing: border-box; background: #FBF6EE; color: #1C1410; border: 1px solid #E6DACB; border-radius: 6px; padding: 0 16px; font-size: 18px">
+<input id="mc-naam" name="name" autocomplete="name" required type="text" style="height: 52px; box-sizing: border-box; background: #FBF6EE; color: #1C1410; border: 1px solid #A08F80; border-radius: 6px; padding: 0 16px; font-size: 18px">
 </div>
 <div style="display: flex; flex-direction: column; gap: 6px">
 <label for="mc-mail" style="font-family: 'Barlow Semi Condensed', sans-serif; font-weight: 600; font-size: 15px; letter-spacing: 0.04em; text-transform: uppercase">E-mailadres <span aria-hidden="true" style="color: #B93A0C">*</span></label>
-<input id="mc-mail" name="email" autocomplete="email" required type="email" style="height: 52px; box-sizing: border-box; background: #FBF6EE; color: #1C1410; border: 1px solid #E6DACB; border-radius: 6px; padding: 0 16px; font-size: 18px">
+<input id="mc-mail" name="email" autocomplete="email" required type="email" style="height: 52px; box-sizing: border-box; background: #FBF6EE; color: #1C1410; border: 1px solid #A08F80; border-radius: 6px; padding: 0 16px; font-size: 18px">
 </div>
 <div style="display: flex; flex-direction: column; gap: 6px; flex: 1 1 auto">
 <label for="mc-bericht" style="font-family: 'Barlow Semi Condensed', sans-serif; font-weight: 600; font-size: 15px; letter-spacing: 0.04em; text-transform: uppercase">Bericht <span aria-hidden="true" style="color: #B93A0C">*</span></label>
-<textarea id="mc-bericht" name="message" required rows="5" style="flex: 1 1 auto; min-height: 120px; box-sizing: border-box; background: #FBF6EE; color: #1C1410; border: 1px solid #E6DACB; border-radius: 6px; padding: 14px 16px; font-size: 18px; resize: vertical"></textarea>
+<textarea id="mc-bericht" name="message" required rows="5" style="flex: 1 1 auto; min-height: 120px; box-sizing: border-box; background: #FBF6EE; color: #1C1410; border: 1px solid #A08F80; border-radius: 6px; padding: 14px 16px; font-size: 18px; resize: vertical"></textarea>
 </div>
 <div style="display: flex; align-items: center; justify-content: space-between; gap: 12px 24px; flex-wrap: wrap">
 <button type="submit" style="background: #B93A0C; color: #FFFFFF; border: 0; border-radius: 6px; font-family: 'Barlow Semi Condensed', sans-serif; font-weight: 600; font-size: 18px; letter-spacing: 0.03em; text-transform: uppercase; padding: 0 32px; min-height: 52px; cursor: pointer">Verstuur</button>
 <span style="font-size: 14px; color: #7A7068; text-align: right; margin-left: auto">Velden met een * zijn verplicht</span>
 </div>
+<p style="margin: 0; font-size: 14px; line-height: 1.5; color: #7A7068">Je gegevens gebruik ik alleen om je te antwoorden. Meer daarover in de <a href="privacy/" style="color: inherit; text-underline-offset: 2px">privacyverklaring</a>.</p>
 <p id="formulier-status" role="status" aria-live="polite" style="margin: 0; font-size: 17px; min-height: 1.4em"></p>
 </form>
 <script>
@@ -611,7 +629,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{
 <div style="position: absolute; left: -80px; bottom: -220px; width: 640px; height: 640px; border-radius: 200px; background: rgba(154,106,11,0.10); transform: rotate(35deg)"></div>
 <div style="position: relative; max-width: 1280px; margin: 0 auto; padding: 22px 48px; box-sizing: border-box; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 6px 32px">
 <div style="font-family: 'Barlow Semi Condensed', sans-serif; font-weight: 700; font-size: 24px; letter-spacing: 0.02em; background-image: linear-gradient(to right, #FF7A3D, #F5B942); -webkit-background-clip: text; background-clip: text; color: transparent; -webkit-text-fill-color: transparent">saxofoonles.be</div>
-<div style="font-size: 15px"><span style="white-space: nowrap">© 2026 <a class="footer-link" href="https://lorenzbaele.be/">Lorenz Baele</a></span><span class="footer-punt"> &nbsp;·&nbsp; </span><span style="white-space: nowrap">lorenzbaele.booking@gmail.com</span><span class="footer-punt"> &nbsp;·&nbsp; </span><span style="white-space: nowrap">BTW BE 1026.022.646</span></div>
+<div style="font-size: 15px"><span style="white-space: nowrap">© 2026 <a class="footer-link" href="https://lorenzbaele.be/">Lorenz Baele</a></span><span class="footer-punt"> &nbsp;·&nbsp; </span><span style="white-space: nowrap">Heernislaan 1, 9000 Gent</span><span class="footer-punt"> &nbsp;·&nbsp; </span><span style="white-space: nowrap"><a class="footer-mail" href="mailto:lorenzbaele.booking@gmail.com">lorenzbaele.booking@gmail.com</a></span><span class="footer-punt"> &nbsp;·&nbsp; </span><span style="white-space: nowrap">BTW BE 1026.022.646</span><span class="footer-punt"> &nbsp;·&nbsp; </span><span style="white-space: nowrap"><a class="footer-link" href="privacy/">Privacy</a></span></div>
 </div>
 </div>
 

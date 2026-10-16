@@ -5,7 +5,9 @@ Eénpagina-website, alleen in het Nederlands. Gewone HTML, geen build nodig. Ope
 ## Inhoud
 
 - `index.html`: de hele pagina (stijl en het scriptje voor het formulier zitten erin)
-- `images/`: de foto's (gecomprimeerd, max. 2000 px breed) en `favicon.png` (192 px)
+- `privacy/index.html`: de privacyverklaring, gelinkt onder het formulier en in de footer. Verander je iets aan het formulier, je adres of de diensten die je gebruikt (zoals Web3Forms), pas het hier ook aan.
+- `images/`: de foto's als WebP (kleiner dan JPEG, max. 2000 px breed) en `favicon.png` (192 px). `banner-lorenz.jpg` blijft als JPEG staan, want die toont WhatsApp, Facebook en Google als voorbeeldfoto. Een nieuwe foto? Zet hem om naar WebP (kwaliteit rond 75-80).
+- `fonts/`: de lettertypes Barlow, Barlow Semi Condensed en Caveat (alleen de Latijnse tekens). Ze staan op de site zelf in plaats van bij Google Fonts: dat laadt sneller en er gaat geen IP-adres van je bezoekers naar Google.
 - `favicon.ico`: het icoontje in de browsertab en naast de site in Google. Google pikt een nieuw icoon pas na enkele dagen tot weken op.
 - `robots.txt` en `sitemap.xml`: voor Google. Pas `lastmod` in de sitemap aan als de inhoud flink verandert.
 - `CNAME`: zegt aan GitHub Pages dat de site op saxofoonles.be draait
@@ -39,7 +41,7 @@ Alles staat op het account lorenzbaele.booking@gmail.com.
 
 - **Google Bedrijfsprofiel** (geverifieerd): website https://saxofoonles.be/, adres van de studio in Gent (publiek zichtbaar). Diensten: Saxofoonles 30 min (€30), Saxofoonles 60 min (€55), Saxofoonles voor kinderen 30 min (€30) en Saxofoonles voor kinderen 60 min (€55). Saxofoonverhuur staat bewust alleen op de website, niet op Google.
 - **Google Search Console**: domeineigendom saxofoonles.be, geverifieerd via het TXT-record hierboven. De homepage is geïndexeerd sinds oktober 2026. Sitemap: https://saxofoonles.be/sitemap.xml.
-- **Gestructureerde gegevens**: `index.html` bevat een JSON-LD-blok (LocalBusiness) met naam, e-mail, Gent, talen (Nederlands en Engels), de saxofoons en stijlen, de tarieven (ook voor kinderen) en de verhuur. Pas de prijzen daar ook aan als ze op de pagina veranderen. Testen met de Rich Results Test van Google.
+- **Gestructureerde gegevens**: `index.html` bevat een JSON-LD-blok (LocalBusiness) met naam, e-mail, het adres van de studio (precies zoals op het Google Bedrijfsprofiel, ook in de footer), de link naar het profiel op Google Maps, talen (Nederlands en Engels), de saxofoons en stijlen, de tarieven (ook voor kinderen) en de verhuur. Pas de prijzen daar ook aan als ze op de pagina veranderen. Testen met de Rich Results Test van Google.
 - **Veelgestelde vragen** (sectie `#vragen`): beantwoordt in gewone zinnen wat mensen aan Google en aan AI-chatbots zoals ChatGPT vragen: prijs, kinderen, proefles, waar, online, welke saxofoons, stijlen, huren en lessen in het Engels. AI-zoekmachines citeren alleen wat letterlijk op de pagina staat, dus verandert je aanbod (of je prijzen), pas het hier ook aan.
 - **Trustpilot**: er bestaat een bedrijfsaccount, maar dat staat bewust niet op de website. Reviews gaan naar Google.
 - **Vorige eigenaar van het domein**: tot ongeveer september 2024 stond op saxofoonles.be de Wix-site van een andere saxofoonleraar. Daarom staat in Search Console nog een oude sitemap `https://www.saxofoonles.be/sitemap.xml` (sinds 2023, verwijst door naar de nieuwe sitemap en doet geen kwaad) en kunnen oude Wix-adressen als 404 opduiken. Niets aan doen. Gecontroleerd in oktober 2026: alleen Lorenz is eigenaar in Search Console.
