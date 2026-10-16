@@ -104,7 +104,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700&amp;family=Barlow+Semi+Condensed:wght@600;700&amp;family=Caveat:wght@700&amp;display=swap" rel="stylesheet">
 <style>
 body{margin:0}
-a{color:#B93A0C}a:hover{color:#1C1410}.info-link{color:#9C2D07;text-decoration:none}.info-link:hover{color:#1C1410}
+a{color:#B93A0C}a:hover{color:#1C1410}
 input,textarea,button{font-family:inherit}
 
 html{scroll-behavior:auto}
@@ -218,14 +218,12 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{
   .faq-kolommen>.faq:first-child details:last-child{border-bottom:1px solid #E6DACB}
   .faq-kolommen>.faq:last-child{border-radius:0 0 12px 12px;padding-top:0}
 }
-/* Contact onder elkaar: titel, formulier, uitleg, gegevens */
+/* Contact onder elkaar: titel, uitleg, formulier */
 @media (max-width:1051px){
   #contact>div{flex-direction:column;flex-wrap:nowrap!important;gap:32px!important}
-  .contact-info{display:contents}
-  #contact h2{margin-bottom:0!important}
-  #contact form{order:1;flex:none!important;padding-top:0!important}
-  .contact-tekst{order:2;margin:0!important;max-width:none!important}
-  .contact-gegevens{order:3}
+  .contact-info{flex:none!important}
+  #contact form{flex:none!important;padding-top:0!important}
+  .contact-tekst{max-width:none!important}
   #formulier-status:empty{display:none}
 }
 @media (max-width:899px){
@@ -282,7 +280,6 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{
   .lessen-kaarten>div{padding:18px 20px!important}
   .lessen-kaarten>div>div:first-child{margin-bottom:10px!important}
   #contact>div{padding:28px 22px!important}
-  .contact-gegevens>div{flex-direction:column;align-items:flex-start!important}
   .footer-punt{display:block;height:0;overflow:hidden}
 }
 </style>
@@ -543,17 +540,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{
 <div style="background: #FFFFFF; border-radius: 12px; padding: 56px; box-sizing: border-box; box-shadow: 0 20px 25px -5px rgba(28,20,16,0.06), 0 8px 10px -6px rgba(28,20,16,0.06); display: flex; flex-wrap: wrap; gap: 64px; align-items: stretch">
 <div class="contact-info" style="flex: 1 1 340px; min-width: 0">
 <h2 style="font-family: 'Barlow Semi Condensed', sans-serif; font-weight: 700; font-size: clamp(40px, 5vw, 64px); line-height: 1.05; letter-spacing: 0.02em; margin: 0 0 24px; color: #3B2F28">Contact</h2>
-<p class="contact-tekst" style="margin: 0 0 40px; color: #5A4B42; font-size: 18px; line-height: 1.6; max-width: 420px">Stuur me gerust een bericht, ook als je nog niet precies weet wat je wilt. Een paar woorden volstaan, de rest zoeken we samen uit. Nog geen saxofoon? Geen probleem, die kun je bij mij huren.</p>
-<dl class="contact-gegevens" style="margin: 0; border-top: 1px solid #E6DACB">
-<div style="display: flex; justify-content: space-between; align-items: baseline; padding: 18px 0; flex-wrap: wrap; gap: 4px 16px; border-bottom: 1px solid #E6DACB">
-<dt style="font-size: 12px; text-transform: uppercase; letter-spacing: 0.18em; color: #5A4B42">E-mail</dt>
-<dd style="margin: 0; color: #1C1410; min-width: 0; overflow-wrap: anywhere"><a class="info-link" href="mailto:lorenzbaele.booking@gmail.com">lorenzbaele.booking@gmail.com</a></dd>
-</div>
-<div style="display: flex; justify-content: space-between; align-items: baseline; padding: 18px 0; flex-wrap: wrap; gap: 4px 16px; border-bottom: 1px solid #E6DACB">
-<dt style="font-size: 12px; text-transform: uppercase; letter-spacing: 0.18em; color: #5A4B42">Locatie</dt>
-<dd style="margin: 0; color: #1C1410">Gent</dd>
-</div>
-</dl>
+<p class="contact-tekst" style="margin: 0; color: #5A4B42; font-size: 18px; line-height: 1.6; max-width: 420px">Stuur me gerust een bericht, ook als je nog niet precies weet wat je wilt. Een paar woorden volstaan, de rest zoeken we samen uit. Nog geen saxofoon? Geen probleem, die kun je bij mij huren.</p>
 </div>
 <form id="contactformulier" action="https://api.web3forms.com/submit" method="POST" style="flex: 1.4 1 440px; min-width: 0; display: flex; flex-direction: column; gap: 20px; padding-top: calc(clamp(40px, 5vw, 64px) * 1.05 + 24px)">
 <input type="hidden" name="access_key" value="390736ed-cded-4464-9c2a-9718f4844fd9">
@@ -624,7 +611,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{
 <div style="position: absolute; left: -80px; bottom: -220px; width: 640px; height: 640px; border-radius: 200px; background: rgba(154,106,11,0.10); transform: rotate(35deg)"></div>
 <div style="position: relative; max-width: 1280px; margin: 0 auto; padding: 22px 48px; box-sizing: border-box; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 6px 32px">
 <div style="font-family: 'Barlow Semi Condensed', sans-serif; font-weight: 700; font-size: 24px; letter-spacing: 0.02em; background-image: linear-gradient(to right, #FF7A3D, #F5B942); -webkit-background-clip: text; background-clip: text; color: transparent; -webkit-text-fill-color: transparent">saxofoonles.be</div>
-<div style="font-size: 15px"><span style="white-space: nowrap">© 2026 <a class="footer-link" href="https://lorenzbaele.be/">Lorenz Baele</a></span><span class="footer-punt"> &nbsp;·&nbsp; </span><span style="white-space: nowrap">BTW BE 1026.022.646</span></div>
+<div style="font-size: 15px"><span style="white-space: nowrap">© 2026 <a class="footer-link" href="https://lorenzbaele.be/">Lorenz Baele</a></span><span class="footer-punt"> &nbsp;·&nbsp; </span><span style="white-space: nowrap">lorenzbaele.booking@gmail.com</span><span class="footer-punt"> &nbsp;·&nbsp; </span><span style="white-space: nowrap">BTW BE 1026.022.646</span></div>
 </div>
 </div>
 
