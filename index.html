@@ -124,7 +124,7 @@
 <a href="#tarieven" class="nav-link">Tarieven</a>
 <a href="#verhuur" class="nav-link">Verhuur</a>
 </div>
-<a href="#top" class="nav-logo verloop-tekst">saxofoonles.be</a>
+<h1 class="nav-logo"><a href="#top" class="verloop-tekst">Saxofoonles in Gent</a></h1>
 <div class="nav-links nav-links-right">
 <a href="#over-mij" class="nav-link">Over mij</a>
 <a href="#vragen" class="nav-link">Vragen</a>
@@ -172,9 +172,9 @@
 </div>
 <div class="hero-inhoud">
 <div class="hero-tekst">
-<h1 class="hero-titel"><span class="hero-label">Saxofoonles in Gent</span> Leer <span class="verloop-tekst">saxofoon</span> spelen, met lessen op jouw maat</h1>
-<p class="hero-intro">Maak meteen muziek, ook zonder voorkennis. Privélessen voor elk niveau, vanaf de eerste noot.</p>
-<a href="#contact" data-bericht="Hoi Lorenz,&#10;Ik wil graag saxofoon leren spelen. Kan ik bij jou les volgen?" class="knop">Neem contact op</a>
+<h2 class="hero-titel">Leer <span class="verloop-tekst">saxofoon</span> spelen, met lessen op jouw maat</h2>
+<p class="hero-intro">Maak meteen muziek, ook zonder voorkennis. Privélessen voor elk niveau, van een ervaren muzikant met een passie voor lesgeven.</p>
+<a href="#contact" class="knop">Neem contact op</a>
 </div>
 </div>
 </div>
@@ -198,9 +198,6 @@
 <h3 class="kaart-titel">Een project</h3>
 <p class="kaart-tekst">Bijvoorbeeld: je wilt een partner, vriend of familielid verrassen met een nummer.</p>
 </div>
-</div>
-<div class="oproep">
-<a href="#contact" class="tekstlink" data-bericht="Hoi Lorenz,&#10;Dit wil ik graag bereiken met de saxofoon: ">Vertel me je doel</a>
 </div>
 
 <h2 class="kop kop-tweede">De lessen</h2>
@@ -231,7 +228,7 @@
 </figure>
 </section>
 <div class="oproep">
-<a href="#contact" class="tekstlink" data-bericht="Hoi Lorenz,&#10;Ik heb nog een vraag over de lessen: ">Nog een vraag?</a>
+<a href="#contact" class="tekstlink">Vertel me je doel</a>
 </div>
 </div>
 
@@ -257,8 +254,7 @@
 </div>
 </div>
 <div class="tarieven-onder">
-<a href="#contact" data-bericht="Hoi Lorenz,&#10;Ik wil graag mijn eerste les plannen." class="knop">Plan je eerste les</a>
-<p class="reiskosten">Kom ik naar je toe? Dan reken ik de verplaatsing aan volgens de Belgische kilometervergoeding.</p>
+<a href="#contact" class="knop">Plan je eerste les</a>
 </div>
 </div>
 </div>
@@ -277,7 +273,7 @@
 <h2 class="kop kop-verhuur">Saxofoon huren</h2>
 <p class="verhuur-intro">Je kunt bij mij een saxofoon huren, per semester of per schooljaar. Je houdt de saxofoon bij je, zodat je dagelijks kunt oefenen. Vraag er gerust naar via het contactformulier.</p>
 </div>
-<a href="#contact" class="tekstlink tekstlink-licht" data-bericht="Hoi Lorenz,&#10;Ik wil graag een saxofoon bij je huren. Kun je me er meer over vertellen?">Vraag naar verhuur</a>
+<a href="#contact" class="tekstlink tekstlink-licht">Vraag naar verhuur</a>
 </div>
 </div>
 
@@ -313,7 +309,7 @@
 <!-- VEELGESTELDE VRAGEN -->
 <div id="vragen" class="sectie">
 <h2 class="kop kop-vragen">Veelgestelde vragen</h2>
-<p class="vragen-intro">Ik geef privélessen saxofoon in Gent, aan kinderen en volwassenen, van beginner tot gevorderd. Hier vind je de antwoorden op de meest gestelde vragen.</p>
+<p class="vragen-intro">Ik geef privélessen saxofoon in Gent, aan kinderen en volwassenen, voor elk niveau. Hier vind je de antwoorden op de meest gestelde vragen.</p>
 <div class="faq-kolommen">
 <div class="faq">
 <details>
@@ -340,7 +336,7 @@
 <div class="faq">
 <details>
 <summary><h3>Waar gaan de lessen door?</h3></summary>
-<p>In mijn studio in Gent, bij je thuis of online. Aan huis kom ik in Gent en omgeving.</p>
+<p>In mijn studio in Gent, bij je thuis of online. Aan huis kom ik in Gent en omgeving. De verplaatsing reken ik aan volgens de Belgische kilometervergoeding.</p>
 </details>
 <details>
 <summary><h3>Kan ik ook online les volgen?</h3></summary>
@@ -359,9 +355,6 @@
 <p>Ja, dat kan. <span lang="en">Yes, I also teach saxophone in English: in my studio in Ghent, at your home or online, for children and adults of every level. <a href="en/">Read more in English</a>.</span></p>
 </details>
 </div>
-</div>
-<div class="oproep">
-<a href="#contact" class="tekstlink" data-bericht="Hoi Lorenz,&#10;Ik heb een vraag: ">Staat je vraag er niet bij?</a>
 </div>
 </div>
 
@@ -405,17 +398,6 @@
   var form = document.getElementById('contactformulier');
   var status = document.getElementById('formulier-status');
   var button = form.querySelector('button[type="submit"]');
-  // Knoppen naar het formulier vullen het bericht alvast in met een tekstje dat bij hun sectie past.
-  // Wat de bezoeker zelf al typte, blijft staan.
-  var bericht = document.getElementById('mc-bericht');
-  var voorgevuld = '';
-  Array.prototype.forEach.call(document.querySelectorAll('a[data-bericht]'), function (a) {
-    a.addEventListener('click', function () {
-      if (bericht.value !== '' && bericht.value !== voorgevuld) return;
-      voorgevuld = a.getAttribute('data-bericht');
-      bericht.value = voorgevuld;
-    });
-  });
   form.addEventListener('submit', function (e) {
     e.preventDefault();
     button.disabled = true;

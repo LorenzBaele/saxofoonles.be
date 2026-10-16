@@ -55,7 +55,9 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{
 .nav-links-right{justify-content:flex-end}
 .nav-link,.nav-link:hover{color:#FFFFFF}
 .nav-link{text-decoration:none;padding:12px 0}
-.nav-logo{font-family:'Barlow Semi Condensed',sans-serif;font-weight:700;font-size:28px;letter-spacing:0.02em;text-decoration:none}
+/* De naam in het midden is de h1 van de pagina, zodat "Saxofoonles in Gent" in de belangrijkste titel staat */
+.nav-logo{margin:0;font-family:'Barlow Semi Condensed',sans-serif;font-weight:700;font-size:28px;letter-spacing:0.02em}
+.nav-logo a{text-decoration:none}
 /* Taalknop (EN op de Nederlandse pagina, NL op de Engelse): een klein kadertje naast Contact */
 .nav-link.taal-link{padding:1px 8px;border:1px solid rgba(255,255,255,.45);border-radius:4px;font-size:15px;letter-spacing:0.06em;transition:color .25s ease,border-color .25s ease}
 .nav-link.taal-link:hover{color:#F5B942;border-color:#F5B942}
@@ -94,8 +96,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{
 /* Witte tekst op het oranje kaartje */
 .prijs-licht{position:relative;color:#FFFFFF}
 .prijs-bedrag.prijs-licht{text-shadow:0 2px 0 rgba(120,35,6,0.35)}
-.tarieven-onder{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:20px 24px;margin-top:28px}
-.reiskosten{display:block;box-sizing:border-box;max-width:401px;margin:0 0 0 auto;padding:10px 16px;background:rgba(251,246,238,0.6);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);border-radius:10px;color:#1C1410}
+.tarieven-onder{margin-top:28px}
 
 /* ===== Verhuur ===== */
 .verhuur{background:#1C1410;color:#FFFFFF;margin-top:0;position:relative;overflow:hidden}
@@ -155,9 +156,6 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{
 
 /* ===== Algemene regels en aanpassingen per schermbreedte ===== */
 .hero-shade{display:none}
-/* Klein label boven de titel, in de h1 zodat "Saxofoonles in Gent" in de belangrijkste titel staat */
-.hero-label{display:block;margin-bottom:16px;font-weight:600;font-size:18px;line-height:1.3;letter-spacing:.12em;text-transform:uppercase;color:#F5B942}
-.hero-label::before{content:"";display:inline-block;width:28px;height:3px;margin-right:12px;border-radius:2px;background-image:linear-gradient(to right,#FF7A3D,#F5B942);vertical-align:middle;transform:translateY(-2px)}
 /* Tekstlink met pijltje, voor de rustigere oproepen */
 .tekstlink{color:#B93A0C;text-decoration:none;font-family:'Barlow Semi Condensed',sans-serif;font-weight:600;font-size:17px;letter-spacing:0.04em;text-transform:uppercase;border-bottom:1px solid rgba(185,58,12,.35);padding-bottom:2px;transition:color .25s ease,border-color .25s ease}
 .tekstlink::after{content:"\00a0\00a0→"}
@@ -216,16 +214,20 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{
 .studio-foto img{width:100%;height:auto;aspect-ratio:1280/964;display:block}
 .studio-foto-schaduw{position:absolute;left:0;right:0;bottom:0;height:40%;background:linear-gradient(to top,rgba(28,20,16,.62) 0%,rgba(28,20,16,0) 100%);pointer-events:none}
 .studio-foto figcaption{position:absolute;left:28px;bottom:18px;color:#FFF6E6;font-family:'Caveat',cursive;font-weight:700;font-size:40px;line-height:1.1;transform:rotate(-2deg);transform-origin:left bottom;text-shadow:0 2px 10px rgba(28,20,16,.55)}
-/* Breed: de kaartjes in een kolom links, de foto rechts half eronder tot aan de piano. De kaartjes bepalen de hoogte, de foto vult die op */
+/* Breed: de kaartjes in een kolom links, even breed als een kaartje erboven, de foto rechts half eronder tot aan de piano.
+   De kaartjes bepalen de hoogte, de foto vult die op */
 @media (min-width:1000px){
-  .lessen-studio{display:grid;grid-template-columns:minmax(320px,400px) 1fr;align-items:center}
+  .lessen-studio{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));column-gap:24px;align-items:center}
   .lessen-kaarten{grid-area:1/1;grid-template-columns:1fr!important;gap:24px!important}
-  .studio-foto{grid-area:1/2;align-self:stretch;margin-left:calc(-1 * clamp(150px, 14.3vw + 7px, 190px));border-radius:0 12px 12px 0;-webkit-mask-image:linear-gradient(to right,transparent 0,rgba(0,0,0,.1) 40px,rgba(0,0,0,.35) 80px,rgba(0,0,0,.65) 120px,rgba(0,0,0,.9) 160px,#000 200px);mask-image:linear-gradient(to right,transparent 0,rgba(0,0,0,.1) 40px,rgba(0,0,0,.35) 80px,rgba(0,0,0,.65) 120px,rgba(0,0,0,.9) 160px,#000 200px)}
+  .studio-foto{grid-area:1/2/2/4;align-self:stretch;margin-left:calc(-1 * clamp(150px, 14.3vw + 7px, 190px) - 24px);border-radius:0 12px 12px 0;-webkit-mask-image:linear-gradient(to right,transparent 0,rgba(0,0,0,.1) 40px,rgba(0,0,0,.35) 80px,rgba(0,0,0,.65) 120px,rgba(0,0,0,.9) 160px,#000 200px);mask-image:linear-gradient(to right,transparent 0,rgba(0,0,0,.1) 40px,rgba(0,0,0,.35) 80px,rgba(0,0,0,.65) 120px,rgba(0,0,0,.9) 160px,#000 200px)}
   .studio-foto img{position:absolute;inset:0;height:100%;object-fit:cover;object-position:0 50%}
   .studio-foto figcaption{left:auto;right:28px;transform-origin:right bottom}
 }
-/* Middel: twee kaartjes boven, het derde links onder, de foto rechts onder en half onder dat kaartje */
+/* Middel: twee kaartjes boven, het derde links onder, de foto rechts onder en half onder dat kaartje.
+   De doelen erboven ook in twee kolommen, het derde doel over de volle breedte, zodat er geen gat naast blijft */
 @media (min-width:640px) and (max-width:999px){
+  #lessen>.kaarten-rooster{grid-template-columns:1fr 1fr}
+  #lessen>.kaarten-rooster>.kaart:last-child{grid-column:1/-1}
   .lessen-studio{display:grid;grid-template-columns:1fr 1fr;gap:24px;align-items:center}
   .lessen-kaarten{display:contents!important}
   .lessen-kaarten>div:nth-child(-n+2){align-self:stretch}
@@ -234,6 +236,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{
 }
 /* Telefoon: de foto wordt de onderkant van het kaartje "Waar gaat de les door?", met een strookje van het plafond eraf */
 @media (max-width:639px){
+  #lessen>.kaarten-rooster{grid-template-columns:1fr}
   .lessen-studio{display:grid;gap:12px}
   .lessen-kaarten{display:contents!important}
   .lessen-kaarten>div:last-child{border-radius:12px 12px 0 0!important;box-shadow:none!important}
@@ -281,10 +284,14 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{
   .stappen{max-width:none}
   #formulier-status:empty{display:none}
 }
-@media (max-width:899px){
+/* Navigatie onder elkaar: de titel bovenaan, de links eronder. Pas vanaf 1100px past alles op één rij.
+   Op smalle telefoons wordt de titel iets kleiner, zodat "Saxophone lessons in Ghent" op één regel blijft */
+@media (max-width:1099px){
   .nav-bar{display:flex!important;flex-wrap:wrap;justify-content:center;padding:14px 20px!important}
-  .nav-logo{order:-1;flex-basis:100%;text-align:center}
+  .nav-logo{order:-1;flex-basis:100%;text-align:center;font-size:clamp(22px,7vw,28px)}
   .nav-links{justify-content:center!important}
+}
+@media (max-width:899px){
   /* Footer: elk gegeven op een eigen regel, anders blijft er een los puntje achter aan een regel */
   .footer-punt{display:block;height:0;overflow:hidden}
 }
@@ -322,13 +329,13 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{
   .tarieven-grid>div{padding:18px!important}
   .tarieven-grid>div>div:first-child{font-size:16px!important}
   .tarieven-grid>div>div:last-child{font-size:52px!important}
-  .tarieven-onder{margin-top:20px!important;gap:16px!important}
+  .tarieven-onder{margin-top:20px!important}
   #over-mij{padding-top:56px!important}
   #over-mij>div>div:first-child{max-width:290px;width:100%;margin:0 auto}
   .over-tekst h2{font-size:52px!important}
   #contact{padding-top:24px!important}
   #top>div:last-child{padding:310px 20px 48px!important}
-  #top h1{font-size:40px!important}
+  #top h2{font-size:40px!important}
   #top p{font-size:19px!important}
   .over-kiekje{right:-8px!important}
   .verhuur-bokeh>span:nth-child(1){left:62%!important;top:auto!important;bottom:-120px}
@@ -336,10 +343,9 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{
   .verhuur-bokeh>span:nth-child(3){left:-50px!important;top:auto!important;bottom:-30px}
   .verhuur-bokeh>span:nth-child(4){left:calc(100% - 30px)!important;top:45%!important}
   #tarieven>div:last-child{padding:40px 20px!important}
-  #tarieven p{max-width:none!important;margin-left:0!important}
-  .tarieven-onder{flex-direction:column-reverse;align-items:flex-start!important}
   #verhuur>div:last-child{padding:44px 20px!important;gap:24px!important}
   .lessen-kaarten{gap:12px!important}
+  .lessen-studio{gap:12px}
   .lessen-kaarten>div{padding:18px 20px!important}
   .lessen-kaarten>div>div:first-child{margin-bottom:10px!important}
   #contact>div{padding:28px 22px!important}
