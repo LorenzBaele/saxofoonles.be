@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Saxofoonles in Gent | Lorenz Baele</title>
-<meta name="description" content="Leer saxofoon spelen, met lessen op jouw maat. Maak meteen muziek, ook zonder voorkennis. Privélessen in mijn studio in Gent of bij je thuis.">
+<meta name="description" content="Leer saxofoon spelen, met lessen op jouw maat. Maak meteen muziek, ook zonder voorkennis. Privélessen in mijn studio in Gent, bij je thuis of online.">
 <link rel="canonical" href="https://saxofoonles.be/">
 <meta name="theme-color" content="#1C1410">
 <meta property="og:type" content="website">
@@ -12,7 +12,7 @@
 <meta property="og:url" content="https://saxofoonles.be/">
 <meta property="og:site_name" content="saxofoonles.be">
 <meta property="og:title" content="Saxofoonles in Gent | Lorenz Baele">
-<meta property="og:description" content="Leer saxofoon spelen, met lessen op jouw maat. Maak meteen muziek, ook zonder voorkennis. Privélessen in mijn studio in Gent of bij je thuis.">
+<meta property="og:description" content="Leer saxofoon spelen, met lessen op jouw maat. Maak meteen muziek, ook zonder voorkennis. Privélessen in mijn studio in Gent, bij je thuis of online.">
 <meta property="og:image" content="https://saxofoonles.be/images/banner-lorenz.jpg">
 <meta property="og:image:width" content="2000">
 <meta property="og:image:height" content="1333">
@@ -234,12 +234,18 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{
   .faq-kolommen>.faq:first-child details:last-child{border-bottom:1px solid #E6DACB}
   .faq-kolommen>.faq:last-child{border-radius:0 0 12px 12px;padding-top:0}
 }
-/* Contact onder elkaar: titel, uitleg, formulier */
+/* Contact: links hoe je eerste les verloopt, in drie stapjes met een handgeschreven cijfer, rechts het formulier */
+.stappen{display:grid;gap:22px;max-width:420px;list-style:none;margin:0;padding:0}
+.stappen>li{display:grid;grid-template-columns:36px 1fr;gap:0 14px;align-items:start}
+.stap-nr{font-family:'Caveat',cursive;font-weight:700;font-size:46px;line-height:.8;color:#B93A0C;text-align:center}
+.stap-titel{display:block;margin-bottom:2px;font-family:'Barlow Semi Condensed',sans-serif;font-weight:700;font-size:21px;line-height:1.25;color:#1C1410}
+.stappen p{margin:0;color:#5A4B42;font-size:17px;line-height:1.5}
+/* Contact onder elkaar: titel, stapjes, formulier */
 @media (max-width:1051px){
   #contact>div{flex-direction:column;flex-wrap:nowrap!important;gap:32px!important}
   .contact-info{flex:none!important}
   #contact form{flex:none!important;padding-top:0!important}
-  .contact-tekst{max-width:none!important}
+  .stappen{max-width:none}
   #formulier-status:empty{display:none}
 }
 @media (max-width:899px){
@@ -252,6 +258,11 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{
 @media (max-width:720px){
   #lessen,#over-mij,#vragen,#contact{padding-left:20px!important;padding-right:20px!important}
   #vragen{padding-top:56px!important}
+  .stappen{gap:18px}
+  .stappen>li{grid-template-columns:30px 1fr;gap:0 12px}
+  .stap-nr{font-size:42px}
+  .stap-titel{font-size:19px}
+  .stappen p{font-size:16px}
   #vragen h2{font-size:34px!important;margin-bottom:12px!important}
   #vragen .vragen-intro{font-size:18px!important;margin-bottom:28px!important}
   .faq{padding:4px 20px}
@@ -509,7 +520,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{
 </details>
 <details>
 <summary><h3>Kan ik beginnen zonder voorkennis?</h3></summary>
-<p>Ja, zeker. Je hebt geen ervaring nodig en je hoeft geen noten te kunnen lezen. Je maakt vanaf de eerste les muziek. Noten lezen leer ik je gaandeweg, als je dat wilt.</p>
+<p>Ja, zeker. Je hebt geen ervaring nodig en je hoeft geen noten te kunnen lezen. We beginnen bij de basis: je saxofoon in elkaar zetten, hem goed vasthouden en je eerste tonen blazen. Noten lezen leer ik je gaandeweg, als je dat wilt.</p>
 </details>
 <details>
 <summary><h3>Heb ik een eigen saxofoon nodig?</h3></summary>
@@ -557,7 +568,11 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{
 <div style="background: #FFFFFF; border-radius: 12px; padding: 56px; box-sizing: border-box; box-shadow: 0 20px 25px -5px rgba(28,20,16,0.06), 0 8px 10px -6px rgba(28,20,16,0.06); display: flex; flex-wrap: wrap; gap: 64px; align-items: stretch">
 <div class="contact-info" style="flex: 1 1 340px; min-width: 0">
 <h2 style="font-family: 'Barlow Semi Condensed', sans-serif; font-weight: 700; font-size: clamp(40px, 5vw, 64px); line-height: 1.05; letter-spacing: 0.02em; margin: 0 0 24px; color: #3B2F28">Contact</h2>
-<p class="contact-tekst" style="margin: 0; color: #5A4B42; font-size: 18px; line-height: 1.6; max-width: 420px">Stuur me gerust een bericht, ook als je nog niet precies weet wat je wilt. Een paar woorden volstaan, de rest zoeken we samen uit. Nog geen saxofoon? Geen probleem, die kun je bij mij huren.</p>
+<ol class="stappen" role="list">
+<li><span class="stap-nr" aria-hidden="true">1</span><div><strong class="stap-titel">Stuur me een bericht</strong><p>Ook als je nog niet precies weet wat je wilt. Een paar woorden volstaan, de rest zoeken we samen uit.</p></div></li>
+<li><span class="stap-nr" aria-hidden="true">2</span><div><strong class="stap-titel">We spreken een moment af</strong><p>In mijn studio in Gent, bij je thuis of online, wanneer het jou past.</p></div></li>
+<li><span class="stap-nr" aria-hidden="true">3</span><div><strong class="stap-titel">We beginnen bij de basis</strong><p>Je saxofoon in elkaar zetten, vasthouden en je eerste tonen blazen. Je zit nergens aan vast.</p></div></li>
+</ol>
 </div>
 <form id="contactformulier" action="https://api.web3forms.com/submit" method="POST" style="flex: 1.4 1 440px; min-width: 0; display: flex; flex-direction: column; gap: 20px; padding-top: calc(clamp(40px, 5vw, 64px) * 1.05 + 24px)">
 <input type="hidden" name="access_key" value="390736ed-cded-4464-9c2a-9718f4844fd9">
